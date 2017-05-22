@@ -1,0 +1,22 @@
+Application of dfs:
+1.Topological sorting
+2.Solving puzzles such as maze
+
+Application of bfs:
+1.Find all shortest path between two nodes
+2.Testing a graph for bipartiteness.
+
+
+
+A Hamiltonian path, also called a Hamilton path, is a graph path between two vertices of a graph that visits each vertex exactly once.
+If a Hamiltonian path exists whose endpoints are adjacent, 
+then the resulting graph cycle is called a Hamiltonian cycle (or Hamiltonian cycle). 
+A graph that possesses a Hamiltonian path is called a traceable graph. 
+In general, the problem of finding a Hamiltonian path is NP-complete (Garey and Johnson 1983, pp. 199-200), 
+so the only known way to determine whether a given general graph has a Hamiltonian path is to undertake an exhaustive search.
+Any bipartite graph with a vertex parity unbalance > 1 has no Hamiltonian paths. 	
+
+Application of topological ordering:
+1. Representing course prerequisites.
+2. In detecting deadlocks
+3. Pipelining for computing jobs.

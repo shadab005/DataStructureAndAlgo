@@ -1,0 +1,70 @@
+In generic code, the question mark (?), called the wildcard, represents an unknown type. 
+The wildcard is never used as a type argument for a generic method invocation, a generic class 
+instance creation,or a supertype.
+
+Upper Bounded Wildcards
+You can use an upper bounded wildcard to relax the restrictions on a variable. 
+Say you want to write a method that works on List<Integer>, List<Double>, and List<Number>; 
+you can achieve this by using an upper bounded wildcard.
+
+ex: public static void process(List<? extends Numb> list) { /* ... */ }
+ex:public static void process(List<? extends Foo> list) {
+    for (Foo elem : list) {
+        // ...
+    }
+}
+
+Unbounded Wildcards
+The unbounded wildcard type is specified using the wildcard character (?), for example, List<?>. 
+This is called a list of unknown type.
+
+There are two scenarios where an unbounded wildcard is a useful approach:
+1.If you are writing a method that can be implemented using functionality provided in the Object class.
+2.When the code is using methods in the generic class that don't depend on the type parameter.
+ For example, List.size or List.clear.
+In fact, Class<?> is so often used because most of the methods in Class<T> do not depend on T.
+
+ex:
+public static void printList(List<?> list) {
+    for (Object elem: list)
+        System.out.print(elem + " ");
+    System.out.println();
+}
+
+
+Lower Bounded Wildcards
+A lower bounded wildcard restricts the unknown type to be a specific type or a super type of that type.
+Say you want to write a method that puts Integer objects into a list. To maximize flexibility, you would like
+the method to work on List<Integer>, List<Number>, and List<Object> — anything that can hold Integer values
+
+ex:
+public static void addNumbers(List<? super Integer> list) {
+    for (int i = 1; i <= 10; i++) {
+        list.add(i);
+    }
+}
+
+Wildcards and Subtyping
+List<B> lb = new ArrayList<>();
+List<A> la = lb;   // compile-time error
+
+Although Integer is a subtype of Number, List<Integer> is not a subtype of List<Number> and, 
+in fact, these two types are not related. 
+The common parent of List<Number> and List<Integer> is List<?>.
+
+In order to create a relationship between these classes so that the code can access Number's 
+methods through List<Integer>'s elements, use an upper bounded wildcard:
+
+List<? extends Integer> intList = new ArrayList<>();
+List<? extends Number>  numList = intList;  // OK. 
+//List<? extends Integer> is a subtype of List<? extends Number>
+
+
+
+
+
+
+
+
+
+ 

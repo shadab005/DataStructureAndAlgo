@@ -1,0 +1,11 @@
+Each primitive types in java has wrapper object type
+ex: int --> Integer
+
+
+Autoboxing:
+Automatic casting between  primitive type and its wrapper
+ex: 
+Stack<Integer> s = new Stack<>();
+s.push(25);
+int x = s.pop();//autoboxing
+behind the scene: int x = s.pop.intValue();

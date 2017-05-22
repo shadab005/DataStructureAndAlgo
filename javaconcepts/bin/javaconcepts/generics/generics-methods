@@ -1,0 +1,52 @@
+Generic methods are methods that introduce their own type parameters. 
+This is similar to declaring a generic type, but the type parameter's scope is limited to the method 
+where it is declared. 
+Static and non-static generic methods are allowed, as well as generic class constructors.
+
+For static generic methods, the type parameter section must appear before the method's return type.
+
+ex:
+public class Util {
+public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2) {}
+}
+
+public class Pair<K, V> {
+public void setKey(K key) { this.key = key; }
+public void setValue(V value) { this.value = value; }
+public K getKey()   { return key; }
+public V getValue() { return value; }
+}
+
+Pair<Integer, String> p1 = new Pair<>(1, "apple");
+Pair<Integer, String> p2 = new Pair<>(2, "pear");
+boolean same = Util.<Integer, String>compare(p1, p2);
+or 
+boolean same = Util.compare(p1, p2);//compiler will infer the type that is needed
+This feature, known as type inference, allows you to invoke a generic method as an ordinary method.
+This feature is known as type inference
+
+
+Generic Methods and Bounded Type Parameters
+ex: 
+public static <T> int countGreaterThan(T[] anArray, T elem){
+    int count = 0;
+    for (T e : anArray)
+        if (e > elem)  // compiler error, greater than operator (>) applies only to primitive types
+            ++count;
+    return count;
+}
+You cannot use the > operator to compare objects. To fix the problem, 
+use a type parameter bounded by the Comparable<T> interface:
+
+public interface Comparable<T> {
+    public int compareTo(T o);
+}
+
+New code:
+public static <T extends Comparable<T>> int countGreaterThan(T[] anArray, T elem) {
+    int count = 0;
+    for (T e : anArray)
+        if (e.compareTo(elem) > 0)
+            ++count;
+    return count;
+}
