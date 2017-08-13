@@ -131,7 +131,33 @@ public class Tree {
 	   return root;
    }  
    
-   public static void main(String args[]){
+   int lca = -1;
+   public void lca(Node root, int a, int b) {
+	  lca = -1;
+      lowestCommonAncestor(root,a , b);   	
+   	  System.out.println("Lowest common ancestor is " + lca);
+   }
+   
+	private boolean lowestCommonAncestor(Node root, int a, int b) {
+		if (root == null)
+			return false;
+		boolean left = lowestCommonAncestor(root.left, a, b);
+		boolean right = lowestCommonAncestor(root.right, a, b);
+		if (lca == -1) {
+			if (left == true && right == true) {
+				lca = root.data;
+				return true;
+			}else if((left == true || right == true) && (root.data == a || root.data ==b)){
+				lca = root.data;
+				return true;
+			}
+		}
+		if (root.data == a || root.data == b)
+			return true;
+		return left || right;
+	}
+   
+public static void main(String args[]){
 	  /* Tree t = new Tree();
 	   t.root = new Node(1);
 	   t.root.left = new Node(2);
@@ -182,4 +208,5 @@ public class Tree {
     *    4   5    6
     *         7      
     */
+ 
 }

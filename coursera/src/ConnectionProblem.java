@@ -1,6 +1,6 @@
 public class ConnectionProblem {
 	
-	private int[] id;
+	private int[] id;  //Stores parent of id
 	private int[] numChild;
 	
 	public ConnectionProblem(int n){
@@ -14,6 +14,15 @@ public class ConnectionProblem {
 		return i;
 	}
 	
+	public int rootInPathCompression(int i){
+		while(i!=id[i]){
+			id[i]=id[id[i]];
+			i =id[i];
+		}
+		return i;
+	}
+	
+	
 	public void union(int p, int q){
 	  
 	  int i = root(p);
@@ -23,7 +32,7 @@ public class ConnectionProblem {
 		  id[i]=j;
 		  numChild[j] = numChild[j]+numChild[i]+1;
 	  }else{
-		  id[i] = j;
+		  id[j] = i;
 		  numChild[i]=numChild[i]+numChild[j]+1;
 	  }
 	}

@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class Util {
 
 	public static <T> void printArrayReverse(T a[]) {
@@ -40,6 +37,18 @@ public class Util {
 			System.out.println();
 		}
 	}
+	
+	public static void printArray(long a[][]){
+		int m  = a.length;
+		int n  = a[0].length;
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print(a[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
 	public static void printArray(boolean a[][]){
 		int m  = a.length;
 		int n  = a[0].length;

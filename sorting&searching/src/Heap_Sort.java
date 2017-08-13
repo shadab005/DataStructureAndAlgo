@@ -2,7 +2,7 @@
 public class Heap_Sort extends Sort {
 	/*
 	 * Heap is a tree representation of array and the array can be thought as the breadfirst traversal of tree 
-	 * For elemet at index k the child are at index at 2k+1 and 2k+2
+	 * For element at index k the child are at index at 2k+1 and 2k+2
 	 * This can be easily seen by drawing the tree
 	 * And property of heap is that each node is not less than any of its child (max-heap)
 	 * 
@@ -84,8 +84,12 @@ public class Heap_Sort extends Sort {
 		}
 	}
 
+	/*
+	 * Building Max heap in this Heap_Sort and all the method sink, swim is written
+	 * accordingly to maintain maxheap
+	 */
 	public static void main(String[] args) {
-		int a[] = { 7 , 6 };//, 5, 10, 8, 17, -1, 20, 2 };
+		int a[] = { 7 , 6 , 5, 10, 8, 17, -1, 20, 2 };
 		printNumbers(a);
 		heapSort(a);
 		printNumbers(a);

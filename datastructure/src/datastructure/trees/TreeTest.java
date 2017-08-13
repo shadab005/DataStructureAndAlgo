@@ -3,7 +3,20 @@ package datastructure.trees;
 public class TreeTest {
 
 	public static void main(String[] args) {
-		testBTree2();
+		 Tree t = new Tree();
+		 t.root = new Node(1);
+		 t.root.left = new Node(2);
+		 t.root.right = new Node(3);
+		 t.root.left.left = new Node(4);
+		 t.root.left.right = new Node(5);
+		 t.root.right.left = new Node(6);
+		 t.root.right.right = new Node(7);
+		 t.lca(t.root,4,5);
+		 t.lca(t.root,4,6);
+		 t.lca(t.root,3,4);
+		 t.lca(t.root,2,4);
+		 t.lca(t.root,5,3);
+
 	}
 	
 	public static void testBTree3(){

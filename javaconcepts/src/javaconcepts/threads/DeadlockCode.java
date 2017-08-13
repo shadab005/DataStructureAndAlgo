@@ -24,7 +24,7 @@ class Resources {
 		synchronized (r1) {
 			System.out.println("Aquired r1 by " + name);
 			try {
-				Thread.sleep(30);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -39,7 +39,7 @@ class Resources {
     	synchronized (r2) {
     		System.out.println("Aquired r2 by " + name);
 			try {
-				Thread.sleep(30);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

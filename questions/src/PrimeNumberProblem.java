@@ -67,9 +67,9 @@ class PrimeNumberProblem {
 	}
 	public static void main(String[] args) {
 		//generateAllPrimeUptoN(10);
-		//generatePrimeFactors(50);
+		generatePrimeFactors(10);
 		//generateAllPrimeInRange(11, 13);
-		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+		/*Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 		int t = in.nextInt();
 		for(int i = 1 ; i<= t; i++){
 			long l = in.nextLong();
@@ -77,6 +77,6 @@ class PrimeNumberProblem {
 			generateAllPrimeInRange(l, r);
 			System.out.println();
 		}
-		in.close();
+		in.close();*/
 	}
 }

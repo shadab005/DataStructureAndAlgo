@@ -1,6 +1,14 @@
 public class DPIntegerKnapSackProblem {
 
 	/*
+	 * Q. 0/1 KnapSack
+	 * Given weights and values of n items, 
+	 * put these items in a knapsack of capacity C to get the maximum 
+	 * total value in the knapsack. 
+	 */
+	
+	
+	/*
 	 * c: 10 w: 5 6 v: 6 9
 	 */
 
@@ -85,9 +93,9 @@ public class DPIntegerKnapSackProblem {
 		System.out.println(IntegerKnapSackProblem.ikSIterativeWithDuplicates(c, w, v));
 */
 		
-		  int w[]={1,5,3,4}; int v[]={15,10,9,5};
+		int w[]={1,5,3,4}; int v[]={15,10,9,5};
 		 
-		 int c = 8;
+		int c = 8;
 		System.out.println(knapSack01(c, w, v));
 		System.out.println(knapSack01R(c, w, v, w.length));
 		System.out.println("End");

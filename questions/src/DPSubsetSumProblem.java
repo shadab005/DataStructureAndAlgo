@@ -1,23 +1,21 @@
 
 public class DPSubsetSumProblem {
 
-	public static boolean isSubSetSum(int a[], int n, int k){
-		if(k==0) return true;
+	public static boolean isSubSetSum(int a[], int n, int sum){
+		if(sum==0) return true;
 		if(n<0) return false;
-		if(a[n] > k) return isSubSetSum(a, n-1, k);
-		return isSubSetSum(a, n-1, k-a[n]) || isSubSetSum(a, n-1, k);
+		if(a[n] > sum) return isSubSetSum(a, n-1, sum);
+		return isSubSetSum(a, n-1, sum-a[n]) || isSubSetSum(a, n-1, sum);
 	}
 	
-	public static boolean isSubSetIterative(int a[], int k){
-		int m=k;
+	public static boolean isSubSetIterative(int a[], int sum){
 		int n=a.length;
-		
-		boolean dp[][] = new boolean[m+1][n+1];
+		boolean dp[][] = new boolean[sum+1][n+1];
 		// If sum is 0, then answer is true
         for (int i = 0; i <= n; i++)
           dp[0][i] = true;
         
-		for(int i = 1; i <= k ; i++){
+		for(int i = 1; i <= sum ; i++){
 			for(int j = 1; j <= n ; j++){
 				if(a[j-1] > i) dp[i][j]=dp[i][j-1];
 				else{
@@ -25,7 +23,7 @@ public class DPSubsetSumProblem {
 				}
 			}
 		}
-		return dp[k][n];
+		return dp[sum][n];
 	}
 	
 	public static void main(String args[]){

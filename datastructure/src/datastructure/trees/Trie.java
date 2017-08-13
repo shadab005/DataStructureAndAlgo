@@ -23,7 +23,7 @@ public class Trie {
                 return false;
             node = node.children[c-'a'];
         }
-		if(node.data.equals(key)) return true;
+		if(node.data != null && node.data.equals(key)) return true;
 		else return false;
 	}
 	
@@ -51,7 +51,7 @@ public class Trie {
 		t.insert("shadab");
 		t.insert("sud");
 		t.insert("shebi");
-		System.out.println(t.search("shadab"));
+		System.out.println(t.search("shad"));
 
 	}
 

@@ -11,6 +11,7 @@ public class DPLongestIncreasingSubsequence {
 	 * L[i]=0 if i = 0
 	 *      1+Max(L[j]) where 0<=j<=i-1 and a[j]<a[i] 
 	 */
+	//O(n^2)
 	static int longestIncreasingSubsequence(int a[]){
 		int n = a.length;
 		int dp[]= new int[a.length];

@@ -1,4 +1,6 @@
-package datastructure.trees;
+package datastructure.segmenttree;
+
+import java.io.IOException;
 
 public class SegmentTree {
 	
@@ -59,7 +61,7 @@ public class SegmentTree {
     	System.out.println();
     }
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		int a[]={-200,3,4,-200,6,2,4,-200,5,6 };
 		SegmentTree st = new SegmentTree(a);
 		st.printSegmentTree();
@@ -72,5 +74,4 @@ public class SegmentTree {
 	 * This input will prove that space 2*n-1 will give wrong answer
 	 */
 	
-
 }

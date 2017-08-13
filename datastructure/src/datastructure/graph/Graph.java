@@ -336,7 +336,7 @@ public class Graph {
 			while(edge!=null){
 				if(visited[edge.id] == 0){
 					if(distance[edge.id] < 0 || distance[edge.id] > distance[minNode]+1){
-					   distance[edge.id] = min + 1;
+					   distance[edge.id] = min + 1; //min + cost[miode][this edge node]
 					   parent[edge.id] = minNode;
 					}
 				}
@@ -373,6 +373,22 @@ public class Graph {
 	 
 	 */
 	}
+	
+	/*
+	 * There is difference between dijstra and Prims mst
+	 *  ex : 
+	 *        10
+	 *  a ========= b
+	 *  ||         /
+	 *  || 9      /
+	 *  ||       /
+	 *  ||     / 2
+	 *  ||    /
+	 *  ||  /
+	 *    /
+	 *   c      
+	 *   
+	 */
 	
 	/*
 	 * Prims algorith start with any node

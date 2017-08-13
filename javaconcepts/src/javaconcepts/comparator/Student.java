@@ -12,26 +12,6 @@ class Student {
 	//private static final Comparator<Student> BY_NAME = new ByName();
 	private static final Comparator<Student> BY_SECTION = new BySection();
 	
-	
-	/*private static class ByName implements Comparator<Student>
-	{
-
-		@Override
-		public int compare(Student o1, Student o2) {
-			return o1.name.compareTo(o2.name);
-		}
-	}*/
-	
-	private static class BySection implements Comparator<Student>
-	{
-
-		@Override
-		public int compare(Student o1, Student o2) {
-			return o1.section-o2.section;
-		}
-		
-	}
-	
 	public Student(String name, int section) {
 		this.name=name;
 		this.section=section;
@@ -41,9 +21,29 @@ class Student {
 		List<Student> list = new ArrayList<>();
 		list.add(new Student("shadab", 7));
 		list.add(new Student("ankit", 9));
-		Collections.sort(list,Student.BY_SECTION);
+		Collections.sort(list,new BySection());
 		for(Student s: list){
 			System.out.println("Name = " + s.name + " Section =  " + s.section);
 		}
 	}
+	
+		/*private static class ByName implements Comparator<Student>
+		{
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				return o1.name.compareTo(o2.name);
+			}
+		}*/
+		
+		private static class BySection implements Comparator<Student>
+		{
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				return o1.section-o2.section;
+			}
+			
+		}
+		
 }
