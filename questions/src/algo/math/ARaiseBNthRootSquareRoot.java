@@ -1,3 +1,4 @@
+package algo.math;
 
 public class ARaiseBNthRootSquareRoot {
 
@@ -23,6 +24,7 @@ public class ARaiseBNthRootSquareRoot {
 		}
 	}
 	
+	//bisection method
 	static double squareRoot(int n){
 		double low=0;
 		double high=n;
@@ -108,8 +110,10 @@ public class ARaiseBNthRootSquareRoot {
 		/*System.out.println(squareRoot(1000));
 		System.out.println(sqrt(1000));
 		System.out.println(nthRoot(8, 3));*/
-		System.out.println(nthRoot(Integer.MAX_VALUE, 7));
-		System.out.println(nthRootNewtonRaphson(Integer.MAX_VALUE, 7));
+		///System.out.println(nthRoot(Integer.MAX_VALUE, 7));
+		//System.out.println(nthRootNewtonRaphson(Integer.MAX_VALUE, 7));
+		System.out.println(squareRoot(1000));
+		System.out.println(sqrt(1000));
 		System.out.println("End of Program");
 
 	}

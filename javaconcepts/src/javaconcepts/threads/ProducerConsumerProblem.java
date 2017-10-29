@@ -8,7 +8,6 @@ class Resource {
 	//queue as fixed buffer size
     Queue<Integer> q = new LinkedList<Integer>();
     int bufferSize = 10;
-
     synchronized void get(Thread t) 
     {
         if (q.isEmpty()) 
@@ -30,15 +29,15 @@ class Resource {
         	System.out.println(t.getName()+" "+"["+t.getId()+"]"+" csume<--"+q.remove()+" buffer size= "+q.size());
         	notifyAll();
         }
-        try 
+      /*  try 
         {
-            Thread.sleep(90);
+            Thread.sleep(1000);
         } 
         catch (InterruptedException e) 
         {
             System.out.println("Exception Occured");
         
-        }
+        }*/
     }
 
     synchronized void put(int x, Thread t) 
@@ -64,12 +63,32 @@ class Resource {
 	    }
         try 
         {
-            Thread.sleep(100);
+        	Thread.sleep(20000);
         } 
         catch (InterruptedException e) 
         {
             System.out.println("catch of sleep");
         }
+    }
+    
+    public void funWithOutLock() {
+    	System.out.println("Lallllllllllla");
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	System.out.println("Jajjajaja");
+    }
+    
+    public synchronized void funWithLock() {
+    	System.out.println("Lockkkkkkkkkkkkkkkkk");
+    	try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	System.out.println("Hahhahaaaaaaaaaaaaa");
     }
 }
 
@@ -89,9 +108,17 @@ class Producer implements Runnable
     {
         int i = 0;
 
-        while (i<4) 
+        while (true) 
         {
             qp.put(i++,t);
+           /* try 
+            {
+            	Thread.sleep(20000);
+            } 
+            catch (InterruptedException e) 
+            {
+                System.out.println("catch of sleep");
+            }*/
 
         }
     }
@@ -107,6 +134,7 @@ class Consumer implements Runnable
 
         this.qc = q;
         t = new Thread(this,name);
+        t.setPriority(Thread.MAX_PRIORITY);
         t.start();
     }
 
@@ -115,6 +143,7 @@ class Consumer implements Runnable
         while (true) 
         {
             qc.get(t);
+            
         }
 
     }
@@ -123,12 +152,18 @@ class Consumer implements Runnable
 public class ProducerConsumerProblem 
 {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
 	{
 	Resource q = new Resource();
+	System.out.println("Creating new producer 1");
     Producer p1 = new Producer(q,"producer 1");
-    Producer p2 = new Producer(q,"producer 2");
+    q.funWithLock();
+    q.funWithOutLock();
+    System.out.println("Creating new consumer 1");
     Consumer c1 = new Consumer(q,"consumer 1");
+    System.out.println("Creating new producer 2");
+    Producer p2 = new Producer(q,"producer 2");
+    System.out.println("Creating new consumer 2");
     Consumer c2 = new Consumer(q,"consumer 2");
 	try
 	{

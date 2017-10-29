@@ -1,0 +1,43 @@
+package javaconcepts.threads;
+
+/*
+ * This is non-reentrant.
+ * 
+ * ex: void f1()
+ * {
+ *   lock.lock();
+ *   //cs
+ *   f2();
+ *   lock.unlock();
+ * }
+ * 
+ * void f2(){
+ * lock.lock();
+ * //cs
+ * lock.unlock();
+ * }
+ * 
+ * thread entring f1() takes lock but when f2() is called within then on the same lock it gets blocked. Therefore non reentrant.
+ * This would not have been the case had we used syncronized keyword which is reentrant by nature. 
+ */
+public class MySimpleLockImpl {
+
+	private boolean isLocked      = false;
+	private Thread  lockingThread = null;
+	
+	public synchronized void lock() throws InterruptedException {
+		while(isLocked) {
+			wait();
+		}
+		isLocked=true;
+		lockingThread = Thread.currentThread();
+	}
+	public synchronized void unlock() {
+		if(this.lockingThread != Thread.currentThread()) {
+			throw new IllegalMonitorStateException("Calling thread has not locked this lock");
+		}
+		isLocked=false;
+		lockingThread=null;
+		notify();
+	}
+}

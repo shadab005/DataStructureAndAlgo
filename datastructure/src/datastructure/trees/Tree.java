@@ -3,6 +3,7 @@ package datastructure.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
 public class Tree {
    public Node root;
    
@@ -131,31 +132,17 @@ public class Tree {
 	   return root;
    }  
    
-   int lca = -1;
-   public void lca(Node root, int a, int b) {
-	  lca = -1;
-      lowestCommonAncestor(root,a , b);   	
-   	  System.out.println("Lowest common ancestor is " + lca);
+   Node lca(Node root, int n1, int n2) 
+   {
+		if(root==null)return null;
+		Node left = lca(root.left,n1,n2);
+		Node right = lca(root.right,n1,n2);
+		if(left!=null && right!=null)return root;
+		if(root.data == n1 || root.data == n2)return root;
+		if(left!=null)return left;
+		else return right;
    }
-   
-	private boolean lowestCommonAncestor(Node root, int a, int b) {
-		if (root == null)
-			return false;
-		boolean left = lowestCommonAncestor(root.left, a, b);
-		boolean right = lowestCommonAncestor(root.right, a, b);
-		if (lca == -1) {
-			if (left == true && right == true) {
-				lca = root.data;
-				return true;
-			}else if((left == true || right == true) && (root.data == a || root.data ==b)){
-				lca = root.data;
-				return true;
-			}
-		}
-		if (root.data == a || root.data == b)
-			return true;
-		return left || right;
-	}
+	
    
 public static void main(String args[]){
 	  /* Tree t = new Tree();

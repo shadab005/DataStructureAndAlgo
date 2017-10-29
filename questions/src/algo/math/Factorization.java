@@ -1,14 +1,16 @@
+package algo.math;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Factorization {
 
 	public static void main(String[] args) {
-		int a[] = new int[1000000];
-		System.out.println(a.length);
-		factorize(96);
-		System.out.println();
+		//factorize(140);
+	//	System.out.println();
 		doFacorize(96);
+		doFacorize(64);
+		doFacorize(36);
 
 	}
 	
@@ -37,9 +39,11 @@ public class Factorization {
 	static void doFacorize(int n){
 		//Preprocessing to calculate minimum prime by constructing 
 		// minPrime array where minPrime[x] will contain minimum prime that divides x
+		System.out.println("Factorizing " + n);
 		int minPrime[] = new int[n+1];
 		for (int i = 2; i * i <= n; ++i) {
 		    if (minPrime[i] == 0) {         //If i is prime
+		    	minPrime[i]=i;//edit
 		        for (int j = i * i; j <= n; j += i) {
 		            if (minPrime[j] == 0) {
 		                minPrime[j] = i;
@@ -47,11 +51,12 @@ public class Factorization {
 		        }
 		    }
 		}
-		for (int i = 2; i <= n; ++i) {
+		//edit
+		/*for (int i = 2; i <= n; ++i) {
 		    if (minPrime[i] == 0) {
 		        minPrime[i] = i;
 		    }
-		}
+		}*/
 		
 		factorize(n, minPrime);
 	}

@@ -10,8 +10,8 @@ public class DeadlockCode {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Resources q = new Resources();
-	    Producers p1 = new Producers(q,"producer 1");
-	    Consumers c1 = new Consumers(q,"consumer 1");
+	    new Producers(q,"producer 1");
+	    new Consumers(q,"consumer 1");
 	    System.out.println("Exiting Main");
 	}
 

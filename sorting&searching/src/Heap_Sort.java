@@ -51,7 +51,7 @@ public class Heap_Sort extends Sort {
 	}
 
 	private static void sink(int a[], int k, int high) {
-		while (2 * k + 1 <= high) {
+		while (2 * k + 1 <= high) {//check if there is any child of k
 			int j = 2 * k + 1;
 			if (j < high && a[j] < a[j + 1])
 				j++;

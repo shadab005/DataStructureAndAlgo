@@ -106,6 +106,25 @@ public class BinarySearchTree extends Tree {
 	   return temp;
 	}
 	
+	Node lcaForBST(Node root, int n1, int n2) 
+    {
+		if(n1>n2) {int temp = n1;n1 = n2;n2=temp;}//swap
+        boolean found  = false;
+        Node ptr = root;
+        Node ans=root;
+        while(!found) {
+        	if(ptr.data>n2) {
+        		ptr=ptr.left;
+        	}else if(ptr.data<n1) {
+        		ptr=ptr.right;
+        	}else {
+        		ans=ptr;
+        		found = true;
+        	}
+        }
+        return ans;
+    }
+	
 	
 	public static void main(String args[]){
 

@@ -1,7 +1,6 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+package algo.math;
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 class PrimeNumberProblem {
 
@@ -67,7 +66,7 @@ class PrimeNumberProblem {
 	}
 	public static void main(String[] args) {
 		//generateAllPrimeUptoN(10);
-		generatePrimeFactors(10);
+		generatePrimeFactors(20);
 		//generateAllPrimeInRange(11, 13);
 		/*Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 		int t = in.nextInt();

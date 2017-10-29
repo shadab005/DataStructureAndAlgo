@@ -2,21 +2,36 @@ package javaconcepts.threads;
 
 public class Test {
 
-	public static void main(String[] args) {
-		Thread t1 = new Thread("test-1");
-		Thread t2 = new Thread("test-2");
-		t2.run();
-		t1.run();
-		System.out.println(Thread.activeCount());
-		System.out.println(Thread.currentThread().getName());
-		System.out.println(Thread.currentThread().getPriority());
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(t1.isAlive());
+	public static void main(String[] args) throws InterruptedException {
+		A a = new A();
+		Thread t1 = new Thread(a);
+		System.out.println(t1.getName());
+		t1.start();
+		System.out.println("zzzzzzzzzzzzzzzzz");
 	}
 
+}
+
+class A implements Runnable{
+	
+	@Override
+	public void run() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println("Hello - " + i);
+			try {
+				fun();
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		/*synchronized (this) {
+			notifyAll();
+		}*/
+	}
+	
+	synchronized void fun() throws InterruptedException {
+		this.wait();
+		System.out.println("Hello");
+	}
 }
