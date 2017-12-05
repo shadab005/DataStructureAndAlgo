@@ -372,6 +372,9 @@ public class Graph {
 	 
 	 
 	 */
+	/*
+	  Another approach is to do run dfs and return vertices in reverse order
+	 */
 	}
 	
 	/*

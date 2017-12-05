@@ -23,6 +23,10 @@ public class UnionFind {
 		return i;
 	}
 	
+	public boolean isConnected(int p, int q) {
+		return root(p)==root(q);
+	}
+	
 	
 	public void union(int p, int q){
 	  

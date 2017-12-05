@@ -30,7 +30,7 @@ public class DPMinDifferenceSubset {
 		}
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 		int t = in.nextInt();
 		for(int i = 1; i <= t; i++){
@@ -57,16 +57,19 @@ public class DPMinDifferenceSubset {
 			System.out.println(Math.abs(secondSubsetSum-firstSubsetSum));
 		}
 		in.close();
-	}
+	}*/
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 	   int n=4;
-	   a=new int[4];
+	   a=new int[n];
 	   a[0]=2;
 	   a[1]=6;
 	   a[2]=11;
 	   a[3]=5;
-	   int sum=sum(a);
+	   int sum=0;//sum(a);
+	   for(int j = 0; j < n ; j++){
+			sum+=a[j];
+		}
 	   //dp=new int[sum+1][n];
 	   //initializeDp(sum+1, n);
 	   k=(sum)/2;
@@ -76,14 +79,15 @@ public class DPMinDifferenceSubset {
 	   int secondSubsetSum= sum-firstSubsetSum;
 	   System.out.println(Math.abs(secondSubsetSum-firstSubsetSum));
 	   
-	}*/
+	}
 	
 	static int minimumDifference(int a[], int sum){
 		int n = a.length;
 		int min[]=new int[sum+1];
 		int currentMinIndex[]=new int[sum+1];
 		int prevMinVal[]=new int[sum+1];
-		for(int i = 0 ; i< sum+1 ;i++){min[i]=Integer.MAX_VALUE;currentMinIndex[i]=-1;prevMinVal[i]=Integer.MAX_VALUE+1;}
+		for(int i = 0 ; i< sum+1 ;i++)
+		{min[i]=Integer.MAX_VALUE;currentMinIndex[i]=-1;prevMinVal[i]=Integer.MAX_VALUE+1;}
 		for(int i = 0 ; i < n  ;i++){
 			if(a[i]<=sum){
 				for(int j = a[i]; j < sum+1 ; j++){

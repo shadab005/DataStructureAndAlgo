@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class GraphComponents {
+public class GraphComponentsUsingUnionFind {
 
 	int numChild[];
 	int id[];
@@ -9,7 +9,7 @@ public class GraphComponents {
 	/*
 	 * for n = 5 -> 1 to 10
 	 */
-	public GraphComponents(int n) {
+	public GraphComponentsUsingUnionFind(int n) {
 		N = 2 * n + 1;
 		numChild = new int[N];
 		id = new int[N];
@@ -57,7 +57,7 @@ public class GraphComponents {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int n = in.nextInt();
-		GraphComponents g = new GraphComponents(n);
+		GraphComponentsUsingUnionFind g = new GraphComponentsUsingUnionFind(n);
 		while(n-->0){
 			g.union(in.nextInt(), in.nextInt());
 		}

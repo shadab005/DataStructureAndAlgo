@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/*
+  -- Styles of writing lambda comparator 
+Comparator<Duck> byWeight = (d1, d2) -> d1.getWeight()—d2.getWeight();
+Comparator<Duck> byWeight = (d1, d2) -> { return d1.getWeight()—d2.getWeight(); };
+Comparator<Duck> byWeight = (Duck d1, Duck d2) -> d1.getWeight()—d2.getWeight();
+Comparator<Duck> byWeight = (Duck d1, Duck d2) -> {return d1.getWeight()—d2.getWeight();};
+*/
 public class LambdaComparatorExample {
 
 	static class Node{

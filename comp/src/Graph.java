@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Graph {
 
@@ -11,6 +12,11 @@ public class Graph {
         for(int i = 0;i<n;i++)vertex.add(new ArrayList<>());
 	}
 	public static void main(String[] args) {
+		System.out.println("In Main");
+		test2();
+	}
+	
+	public static void test1() {
 		Graph g = new Graph(9);
 		g.connect(0, 2);
 		g.connect(0, 3);
@@ -23,6 +29,40 @@ public class Graph {
         g.depthFirstTraversal();
         System.out.println("End");
 	}
+	
+	public static void test2() {
+		Graph g = new Graph(8);
+		g.connect(0, 2);
+		g.connect(0, 3);
+		g.connect(0, 5);
+		g.connect(2, 3);
+		g.connect(2, 4);
+		g.connect(4, 6);
+		g.connect(4, 7);
+		g.connect(5, 1);
+		printGraph(g, g.n);
+		g.dfsIterative(0);
+	
+	}
+	
+	public void dfsIterative(int source) {
+		boolean marked[] = new boolean[n];
+		Stack<Integer> s = new Stack<>();
+		s.push(source);
+		int z = 0;
+		marked[source]=true;
+		while(!s.isEmpty()) {
+			z = s.pop();
+			System.out.println(z);
+			for(int e:vertex.get(z)) {
+				if(!marked[e]) {
+					s.push(e);
+					marked[e]=true;
+				}
+			}
+		}
+	}
+
 	boolean visited[];
 	public void depthFirstTraversal(){
 		int count=0;

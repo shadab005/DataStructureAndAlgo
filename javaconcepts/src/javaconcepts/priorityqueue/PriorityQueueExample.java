@@ -12,6 +12,10 @@ public class PriorityQueueExample {
 			this.name=name;
 			this.roll=roll;
 		}
+		
+		public String toString() {
+			return "[ "+ name +" , "  + roll +" ]";
+		}
 	};
 	
 	public static void main(String[] args) {
@@ -29,14 +33,18 @@ public class PriorityQueueExample {
 		pq.add(new Student("Shadab",5));
 		pq.add(new Student("Sud",2));
 		pq.add(new Student("ayubi",7));
+		System.out.println(pq);
+		System.out.println(pq.remove().name);
+		System.out.println(pq.remove().name);
+		System.out.println(pq.remove().name);
 		
-		for(Student s : pq){
+		/*for(Student s : pq){
 			System.out.println(s.name);	
 		}
 		System.out.println(pq.remove().name);
 		System.out.println(pq.remove().name);
 		System.out.println(pq.remove().name);
-		
+		*/
 
 	}
 

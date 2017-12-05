@@ -1,0 +1,119 @@
+#A good solution to the critical section problem must satisfy the following three conditions :
+1. Mutual Exclusion
+2. Progress
+3. Bounded Waiting
+
+##Defining Semaphore
+
+struct semaphore{
+   int s;
+   waiting process queue;
+   }
+ 
+   seamphore s==1;
+   wait(s){
+	   s--;
+	   if(s<0){
+	    block;
+	   }
+   }
+ signal(s){
+	 s++;
+	 if(s>=0){
+	   signal process to and remove process from waiting process queue;
+	 }
+ }
+ 
+ 
+ ##Using semaphore to solve critical section problem
+ 
+ Note in solving semaphore problem the initialization 
+ 
+ Sempaphore s = 1; //1 usually for mutual exclusion. Mutex is another sort of semaphore which is used for mutual exclusion only
+ 				   //A mutex is much simpler in taking lock than semaphore
+ 				   //A semaphore can be used also for synchronization or counting (Counting semaphore) apart from the CS problem.
+ 
+ process p1 and p2
+ p1:			p2:
+ s.wait()		s.wait()
+ CS              CS
+ s.signal()		s.signal()
+ 
+ 
+ ##Syncronization problem
+ 
+ p1			p2
+ .			.
+ .			.
+ A			.
+ .			.
+ .			.		
+ .			B
+ .			.
+ 
+ Problem :  P2 should not execute B unless p1 executes A	
+ 
+=>
+Declare sempahore s = 0;
+ p1			p2
+ .			.
+ .			.
+ A			.
+ s.signal()	.
+ .			.
+ .			s.wait()	
+ .			B
+ .			.
+ 
+ ## Reader writer problem
+ 
+In reader writer problem in which we have a database
+Mutiple readers can read but only singal writer allowed
+
+Types of reader writer problem:
+>> Strong reader priority
+1. Once a writer finishes give priority to waiting reader over waiting writer
+2. While reading in progress allow waiting reader
+>> Weak reader priority
+Only point 2 in above is enforced
+>> Strong writer priority
+1. Once a reading/writing finishes give priority to waiting writer over waiting reader
+2. While reading in progress donot allow waiting reader if there is a waiting writer
+>> Weak writer priority
+Only point two is enforced
+
+
+##Solution to weak reader priority
+
+Semaphore mutex  = 1; //for mutual exclusion to increase the count
+Semaphore wrt = 1;   //for mutual exclusion between writer and first reader
+int readCount = 0;
+
+Writer process			Reader process
+wait(wrt)                wait(mutex)
+cs						 readCount++;
+signal(wrt)				 if(readCount==1)wait(wrt)
+ 						 signal(mutex)
+ 						 CS
+ 						 wait(mutex)
+ 						 readCount--
+ 						 if(readCount==0)signal(wrt)
+ 						 signal(mutex)
+ 						 
+##Solution to strong reader priority
+Seamphore rmutex  = 1, wmutex  = 1, srmutex  =1;
+
+Writer process			Reader process
+wait(srmutex)			wait(rmutex)	
+wait(wmutex)			readCount++;
+CS                      if(readCount==1)wait(wmutex)
+signal(wmutex)			signal(rmutex)	
+signal(srmutex)			CS
+						wait(rmutex)	
+						readCount--
+						if(readCount==0)signal(wmutex)
+						signal(rmutex)
+						
+
+
+ 
