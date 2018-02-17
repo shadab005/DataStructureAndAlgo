@@ -1,0 +1,6 @@
+A Tic Tac toe is usually designed as a state machine.
+State :  PLAYING, DRAW, CROSS_WON, NOUGHT_WON
+Game has Pieces i.e CROSS, NOUGHT
+Game has two players
+Game has a board
+Game maintains the state of the player

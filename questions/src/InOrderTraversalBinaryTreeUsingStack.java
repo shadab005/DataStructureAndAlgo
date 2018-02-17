@@ -11,6 +11,7 @@ public class InOrderTraversalBinaryTreeUsingStack {
 			s.push(root);
 			root=root.left;
 		}
+		s.push(root);
 		while (!s.isEmpty()) {
 			Node current = s.pop();
 			System.out.print(current.data + " ");

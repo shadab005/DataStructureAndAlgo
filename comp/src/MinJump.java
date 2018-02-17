@@ -30,8 +30,36 @@ public class MinJump {
 		while(t-->0){
 			n = in.nextInt();
 			for(int i=0;i<n;i++)a[i]=in.nextInt();
-			System.out.println(minStep(a,n));
+			System.out.println(minJump(a,n));
 		}
 		in.close();
+	}
+	
+	public static int minJump(int[] a, int n) {
+		if(a[0]==0)return -1;
+		int count = 0;
+		int i = 0;
+		while(i+a[i] < n-1) {
+			//System.out.println("Solving for i = " + i);
+			i = getMax(a, i+1, i+a[i]);
+			//System.out.println("Next index to jump = " + i);
+			if(a[i]==0)return -1;
+			count++;
+			//System.out.println("count = " + count);
+		}
+		return count+1;
+	}
+
+	private static int getMax(int[] a, int i, int j) {
+		int max = -1, maxIndex = 0;
+		max = i+a[i];
+		maxIndex = i;
+		for(int k = i+1 ; k<=j ;k++) {
+			if(max < a[k]+k) {
+				max = a[k]+k;
+				maxIndex = k;
+			}
+		}
+		return maxIndex;
 	}
 }

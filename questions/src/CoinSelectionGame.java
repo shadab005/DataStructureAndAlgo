@@ -14,7 +14,7 @@ public class CoinSelectionGame {
 	}
 	
     /*
-     * MV(i, j) = Max { Vi + Min{MV(i+2,j), MV(i+1, j-1)} , Vi + Min{MV(i+1,j-1), MV(i, j-2)}}
+     * MV(i, j) = Max { Vi + Min{MV(i+2,j), MV(i+1, j-1)} , Vj + Min{MV(i+1,j-1), MV(i, j-2)}}
      */
 	static int maxCoin(int a[], int i, int j){
 		if(i>j) return 0;

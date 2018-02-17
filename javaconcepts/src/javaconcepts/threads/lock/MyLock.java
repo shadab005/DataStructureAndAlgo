@@ -24,8 +24,10 @@ package javaconcepts.threads.lock;
 public class MyLock {
 
 	private boolean isLocked = false;
-	public synchronized void  lock() {
-		while(isLocked) {
+	private Thread lockingThread;
+
+	public synchronized void lock() {
+		while (isLocked) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
@@ -34,11 +36,13 @@ public class MyLock {
 			}
 		}
 		isLocked = true;
+		lockingThread = Thread.currentThread();
 	}
-	
+
 	public synchronized void unlock() {
-		isLocked = false;
-		notifyAll();
+		if (Thread.currentThread() == lockingThread) {
+			isLocked = false;
+			notifyAll();
+		}
 	}
 }
-

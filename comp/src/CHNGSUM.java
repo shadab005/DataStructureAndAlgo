@@ -1,6 +1,3 @@
-import java.util.Scanner;
-import java.util.Stack;
-
 /*
  * Summationi=1 to N−1 : maxSum[i]∗(cumMinSum[i+1])
  * maxSum[i]  denote the sum of maximum 
@@ -13,7 +10,7 @@ import java.util.Stack;
  */
 class CHNGSUM {
 
-	static int mod = 1000000007;
+	/*static int mod = 1000000007;
 	static long[] maxSum(int a[], int n){
 		long[] maxSum = new long[n];
 		Stack<Integer> s = new Stack<>();
@@ -80,7 +77,7 @@ class CHNGSUM {
 
 	}
 
-	
+	*/
 	
 
 }

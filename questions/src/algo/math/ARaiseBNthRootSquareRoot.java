@@ -16,12 +16,8 @@ public class ARaiseBNthRootSquareRoot {
 	static int powerRecursive(int a, int b){
 		if(b==0)return 1;
 		int x = powerRecursive(a, b/2);
-		if(b%2==1){
-			return a*x*x;
-		}
-		else{
-			return x*x;
-		}
+		if(b%2==1)return a*x*x;
+		else return x*x;
 	}
 	
 	//bisection method

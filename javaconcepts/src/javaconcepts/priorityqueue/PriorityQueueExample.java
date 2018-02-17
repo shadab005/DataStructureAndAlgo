@@ -20,7 +20,7 @@ public class PriorityQueueExample {
 	
 	public static void main(String[] args) {
 		Comparator<Student> byName = (o1,o2)->o1.name.compareTo(o2.name);
-		Comparator<Student> byRoll = (o1,o2)->o2.roll-o1.roll; //For max heap
+		Comparator<Student> byRoll = (x,y)->x.roll-y.roll; //For max heap
 		
 		/*
 		 * Here we are passing comparator to our pq.
@@ -28,15 +28,17 @@ public class PriorityQueueExample {
 		 * and in that case I don't need to 
 		 */
 
-		PriorityQueue<Student> pq = new PriorityQueue<>(byRoll);
-		
+		PriorityQueue<Student> pq = new PriorityQueue<Student>(byName);
 		pq.add(new Student("Shadab",5));
-		pq.add(new Student("Sud",2));
-		pq.add(new Student("ayubi",7));
-		System.out.println(pq);
+		pq.add(new Student("Sud",12));
+		pq.add(new Student("Ayubi",8));
+		/*for(Student ss:pq) {
+			System.out.println(ss);
+		}*/
+		/*System.out.println(pq);
 		System.out.println(pq.remove().name);
 		System.out.println(pq.remove().name);
-		System.out.println(pq.remove().name);
+		System.out.println(pq.remove().name);*/
 		
 		/*for(Student s : pq){
 			System.out.println(s.name);	
@@ -45,7 +47,18 @@ public class PriorityQueueExample {
 		System.out.println(pq.remove().name);
 		System.out.println(pq.remove().name);
 		*/
+		System.out.println(pq.remove().name);
+		System.out.println(pq.remove().name);
+		System.out.println(pq.remove().name);
 
+	}
+	
+	static class StudentComparator implements Comparator<Student>{
+		@Override
+		public int compare(Student o1, Student o2) {
+			return o1.roll-o2.roll;
+		}
+		
 	}
 
 }

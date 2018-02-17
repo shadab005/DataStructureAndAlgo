@@ -10,8 +10,8 @@ public class MyGraph {
 	@SuppressWarnings("unchecked")
 	MyGraph(int n){
 		this.n = n;
-		vertex = (ArrayList<Integer>[])new ArrayList[n];
-		for(int i=0;i<n;i++)vertex[i]=new ArrayList<>();
+		ArrayList<Integer>[] a = (ArrayList<Integer>[])new ArrayList[n];
+		for(int i=0;i<n;i++)a[i]=new ArrayList<>();
 	}
 	
 	public void connect(int v, int w) {

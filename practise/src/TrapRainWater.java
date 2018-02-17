@@ -63,5 +63,32 @@ class TrapRainWater {
         }
         System.out.println(result);
     }
+	
+	public int trap(final List<Integer> a) {
+		int n = a.size();
+		int result = 0;
+        int lMax=0;
+        int rMax = 0;
+        int s = 0;
+        int e = n-1;
+        while(s<=e){
+            if(a.get(s)<a.get(e)){
+                if(a.get(s)>lMax){
+                    lMax=a.get(s);
+                }else{
+                    result+=lMax-a.get(s);
+                }
+                s++;
+            }else{
+                if(a.get(e)>rMax){
+                    rMax=a.get(e);
+                }else{
+                    result+=rMax-a.get(e);
+                }
+                e--;
+            }
+        }
+        return result;
+    }
 
 }

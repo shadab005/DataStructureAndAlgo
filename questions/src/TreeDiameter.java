@@ -9,7 +9,6 @@ public class TreeDiameter {
 		if(root == null)return -1;
 		int ht_left = 1 + treeDiameter(root.left);
 		int ht_right = 1 + treeDiameter(root.right);
-		
 		int diameterAthThisNode = 1 + ht_left + ht_right;
 		if(diameterAthThisNode > diameter) diameter = diameterAthThisNode;
 		return Math.max(ht_left, ht_right);
@@ -25,8 +24,6 @@ public class TreeDiameter {
 		BinaryTreePrinter.printNode(t.root);
 		treeDiameter(t.root);
 		System.out.println("Diameter of the tree is : " + diameter);
-		
-
 	}
 
 }
