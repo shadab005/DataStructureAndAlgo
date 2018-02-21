@@ -1,4 +1,7 @@
 
+/*
+ * http://code4reference.com/2014/06/lru-implementation-linkedhashmap/ Java lru
+ */
 class Node {
 	Node(int x) {
 		id = x;
