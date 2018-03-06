@@ -1,0 +1,16 @@
+Elevator design for a building with multiple elevator
+
+A person standing on floor and call the elevator
+1.  Request goest to elevator manager and it selects the elevator to serve the request
+2.  Inside an elevator any button press will invoke an action
+	There are two types of buton inside an elevator for now
+	FloorButton that adds request to go to a particular floor
+	Stop button to make the elevator stop.
+
+3. When a request comes to elevator to for it to move to some floor, then it invokes the
+   request scheduler to take care of it by calling its addRequest method
+   
+4. Request scheduler will continuouslly fetch next request to serve, serve the request and
+   then repeat. FCFSRequestScheduler is one of the concrete class and should be using first come
+   first serve request serving model.
+   

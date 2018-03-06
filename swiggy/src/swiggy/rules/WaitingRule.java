@@ -5,6 +5,10 @@ import java.util.Date;
 import swiggy.models.Assignment;
 import swiggy.util.TimeUtil;
 
+/*
+ *
+ * Higher the Waiting time of delivery executive higher the contribution value 
+ */
 public class WaitingRule implements Rule{
     
 	@Override

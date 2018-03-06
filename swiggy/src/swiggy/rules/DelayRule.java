@@ -5,6 +5,9 @@ import java.util.Date;
 import swiggy.models.Assignment;
 import swiggy.util.TimeUtil;
 
+/*
+ * Higher the Delay higher the contribution value
+ */
 public class DelayRule implements Rule {
 
 	@Override

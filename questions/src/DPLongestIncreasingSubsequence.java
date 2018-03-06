@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class DPLongestIncreasingSubsequence {
@@ -36,10 +37,21 @@ public class DPLongestIncreasingSubsequence {
 		max=0;
 		for(int i = 0; i < n ; i++){
 			if(max<dp[i])max=dp[i];
-			System.out.println(list.get(i));
+			//System.out.println(list.get(i));
 		}
-		System.out.println("=========================");
+		//System.out.println("=========================");
 		return max;
+	}
+	
+	
+	HashMap<Integer,Integer> map = new HashMap<>();
+	public static int lis(int a[], int n, int x) {
+        if(n<0)return 0;
+        int m = lis(a, n-1,x);//nth element is not included in the solution
+        if(a[n]<x) {
+        	m = Math.max(m, 1+lis(a,n-1,a[n]));
+        }
+		return m;
 	}
 	//1 5 2 3
 	public static void main(String[] args) {
@@ -51,6 +63,8 @@ public class DPLongestIncreasingSubsequence {
 		int f[] = {3,2,6,4,5,1};
 		int g[] = {10, 13, 17, 18, 1, 2};
 		System.out.println(longestIncreasingSubsequence(a));
+		System.out.println(lis(a,a.length-1,Integer.MAX_VALUE));
+		
 		System.out.println(longestIncreasingSubsequence(b));
 		System.out.println(longestIncreasingSubsequence(c));
 		System.out.println(longestIncreasingSubsequence(d));

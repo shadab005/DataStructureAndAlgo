@@ -1,0 +1,26 @@
+1. How to scale this approach to whole city ?
+City can be divided into small regions identified by each region code. Given any location it can be mapped
+to some region code.
+
+So we will have information of
+{region_code, order_location}
+{region_code, delivery_executives}
+
+So for any order placed  placed with a restuarant region code will be fetched
+For this region codes all the orders will be fecthed which i yet to be assigned.
+All the delivery executives free willbe fetcched.  
+And then the AssignmentService will be called to get the list of Assignment
+
+
+2. How to fetch DEs to be mapped with order?
+Both order and DEs will be mapped to region_id based on the location.
+From order we wil fetch the region_id and then from region_id we will fetch the delivery executives for that
+region.
+
+3. Some areas might want to increase efficiency i.e maximum utilization of delivery boys.
+On the other hand, some might want to increase quality i.e prioritize order delay, equal
+distribution of orders among delivery boys. How should the code be designed so that
+these factors can be easily incorporated in future?
+
+This is already taken care off in the design. We will add rules to rule engine based on the order of priority.
+So we will define order of rules according to the area and initalize the rule engine accordingly. 

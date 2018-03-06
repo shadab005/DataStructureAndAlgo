@@ -1,0 +1,18 @@
+Assignment Service exposes the api assignmentFunction responsible for returning list of Assignment as 
+per the priority. AssigmentService has information of List<Order> and List<DeliveryExecutive>
+And an Assignment contains information of Order and DeliveryExecutive.
+
+We have rule engine to which we set different set of rules in the order of priority and 
+we can change by setting different rules in differnt orders.
+
+A rule engine exposes evalute funtion which takes Assignment as input and calculates 
+how much weightage cost the Assignment has. More the weightage cost better the Assignment of an Order
+to a delivery executive.
+
+
+Steps:
+Client calls AssignmentService assignmentFunction to fetch List<Assignment>
+AsignmentServive for each combination of Order and Delivery executive it creates Assignment 
+and invokes the ruleEngine to calculate the weightage of it.
+RuleEngine runs the assignment to each rule and get the total cost as per the priority.
+AssignmentService then returns the result  based on this weighted cost.

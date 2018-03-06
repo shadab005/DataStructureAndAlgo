@@ -10,7 +10,7 @@ public class DistanceRule implements Rule{
 
 	@Override
 	public int contributionValue(Assignment assignment, int priority) {
-		//less the time take more the cost
+		//less the time take more the contribution value
 		//so we time is inversely proportional to prioritization cost
 		double haversineEquivalent = getFirstMile(assignment); 
 		double value = 1000/haversineEquivalent;
@@ -18,10 +18,12 @@ public class DistanceRule implements Rule{
 	}
 	
 	private double getFirstMile(Assignment a) {
+		//Location detail of the order from the restuarant
 		Location l1 = a.getOrder().getLocation();
 		double x1 = l1.getLatitude();
 		double y1 = l1.getLongitude();
 		
+		//Location detail of Delivery Executive
 		Location l2 = a.getDeliveryExecutive().getLocation();
 		double x2 = l2.getLatitude();
 		double y2 = l2.getLongitude();
