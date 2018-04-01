@@ -1,3 +1,7 @@
+package algo.dynamicprogramming;
+
+import algo.util.Util;
+
 public class DPLongestPalindromeSubsequence {
 	
 	static int longestPallindromeSubsequence(char s[]){

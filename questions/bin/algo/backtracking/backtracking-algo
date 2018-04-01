@@ -1,0 +1,14 @@
+/*BackTracking PsuedoCode
+bool solve(configuration conf)
+{
+  if(no more choices)	//BASE CASE
+	return (conf is goal state)
+  for(all avialable choices)
+  {
+    try one choice c;
+    //solve from here,if works out, you are done
+    if(solve(conf with choice c made)) return true;
+    else unmake choice c;
+  }
+  return false;  //tried all choices, no solution found
+}*/

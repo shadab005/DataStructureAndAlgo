@@ -1,3 +1,4 @@
+package algo.dynamicprogramming;
 import java.util.Scanner;
 
 /*

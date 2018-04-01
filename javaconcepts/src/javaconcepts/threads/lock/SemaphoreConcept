@@ -1,6 +1,7 @@
 #A good solution to the critical section problem must satisfy the following three conditions :
 1. Mutual Exclusion
-2. Progress
+2. Progress - If no process is in the critical section, 
+              then no other process from outside can block it from entering the critical section.
 3. Bounded Waiting
 
 ##Defining Semaphore

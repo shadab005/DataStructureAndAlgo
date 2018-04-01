@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import algo.util.Util;
+
 //import java.util.Scanner;
 
 class DPCandies {

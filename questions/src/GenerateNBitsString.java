@@ -1,6 +1,8 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
+import algo.util.Util;
+
 public class GenerateNBitsString {
 
 	static Integer a[];

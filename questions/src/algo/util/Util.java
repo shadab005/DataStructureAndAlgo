@@ -1,3 +1,5 @@
+package algo.util;
+
 public class Util {
 
 	public static <T> void printArrayReverse(T a[]) {

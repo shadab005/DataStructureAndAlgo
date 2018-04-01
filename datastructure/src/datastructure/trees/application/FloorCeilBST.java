@@ -1,3 +1,4 @@
+package datastructure.trees.application;
 import datastructure.trees.BinarySearchTree;
 import datastructure.trees.BinaryTreePrinter;
 import datastructure.trees.Node;

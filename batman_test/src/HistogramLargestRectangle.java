@@ -1,31 +1,30 @@
 import java.util.Stack;
 
-public class LargestRectangleHistogram {
+public class HistogramLargestRectangle {
 
-	private static void findLargestRectangularArea(int[] height) {
-		int n = height.length;
+	public static int getMaxArea(int h[]) {
+		int area = 0;
 		Stack<Integer> s = new Stack<>();
-		int maxArea=height[0];
-		int top = -1;
 		int j = 0;
-		for(int i = 0; i < n ; i++){
+		int top = -1;
+		for(int i=0;i<h.length;i++) {
 			j = i;
 			if(!s.isEmpty())top = s.peek();
-			while(!s.isEmpty() && height[s.peek()] > height[i]){
+			while(!s.isEmpty() && h[s.peek()]>h[i]) {
 				j = s.pop();
-				maxArea = Math.max(maxArea, height[j]*(top-j+1));
+			    area = Math.max(area, (top-j+1)*h[j]);
 			}
-			height[j]=height[i];
+			h[j]=h[i];
 			s.push(j);
 			if(i!=j)s.push(i);
 		}
 		if(!s.isEmpty())top = s.peek();
 		while(!s.isEmpty()){
 			j = s.pop();
-			maxArea = Math.max(maxArea, height[j]*(top-j+1));
+			area = Math.max(area, (top-j+1)*h[j]);
 		}
-		System.out.println(maxArea);
 		
+		return area;
 	}
 	
 	public static int findLargestRectangle(int h[]) {
@@ -57,18 +56,10 @@ public class LargestRectangleHistogram {
 		}
 		return area;
 	}
-	
 	public static void main(String[] args) {
-		int height[]={4 ,1000, 1000, 1000, 1000};
-		int height2[] = {1,1,1,1,1,1,1,1,4,5,6,2,2};
-		int hist[] = {7, 2, 1, 4, 5, 1, 3, 3};
-		findLargestRectangularArea(height);
-		System.out.println(findLargestRectangle(height));
-		findLargestRectangularArea(height2);
-		System.out.println(findLargestRectangle(height2));
-		findLargestRectangularArea(hist);
+		int hist[] = {6,2,5,4,5,1,6};
+		System.out.println(getMaxArea(hist));
 		System.out.println(findLargestRectangle(hist));
-		
 	}
 
 }
