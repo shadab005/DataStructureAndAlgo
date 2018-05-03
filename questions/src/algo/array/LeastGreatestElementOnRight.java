@@ -1,3 +1,4 @@
+package algo.array;
 import java.util.TreeSet;
 
 public class LeastGreatestElementOnRight {
@@ -6,7 +7,7 @@ public class LeastGreatestElementOnRight {
 		int ans[] = new int[a.length];
 		TreeSet<Integer> set = new TreeSet<>();
 		for(int i=a.length-1;i>=0;i--) {
-			Integer x = set.higher(a[i]);
+			Integer x = set.lower(a[i]);
 			if(x==null)ans[i]=-1;
 			else {
 				ans[i]=x;
@@ -17,8 +18,10 @@ public class LeastGreatestElementOnRight {
 	}
 	public static void main(String[] args) {
 
-	    int a[] = { 8, 58, 71, 18, 31, 32, 63, 92,
-	                  43, 3, 91, 93, 25, 80, 28 };
+	    /*int a[] = { 8, 58, 71, 18, 31, 32, 63, 92,
+	                  43, 3, 91, 93, 25, 80, 28 };*/
+	    
+	    int a[]= {2,3,1,0,2,4,2};
 	    
 	    int ans[] = leastGreatestOnRight(a);
 	    for(int x:ans)System.out.println(x+" ");

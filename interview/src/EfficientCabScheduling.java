@@ -3,21 +3,21 @@ import java.util.PriorityQueue;
 
 public class EfficientCabScheduling {
 
+	private static final Comparator<CabScheduleData> LAST_SCHEDULE_TIME = (o1,o2)->o1.lastScheduleTime-o2.lastScheduleTime;
 	public static int getMinimumTime(int n, int k, int[] tripTime) {
-	   int count[] = new int[k];
-	   Comparator<CabInfo> byTime = (o1,o2)->o1.waitingTime-o2.waitingTime;
-	   PriorityQueue<CabInfo> pq = new PriorityQueue<>(byTime);
+	   int tripCount[] = new int[k];
+	   PriorityQueue<CabScheduleData> priorityScheduleQueue = new PriorityQueue<>(LAST_SCHEDULE_TIME);
 	   for(int i=0;i<k;i++) {
-		   pq.add(new CabInfo(i, tripTime[i]));
+		   priorityScheduleQueue.add(new CabScheduleData(i, tripTime[i]));
 	   }
-	   CabInfo cabInfo = null;
-	   while(n-->0) {
-		  // System.out.println("k="+k);
-		   cabInfo = pq.remove();
-		   count[cabInfo.cab]++;
-		   pq.add(new CabInfo(cabInfo.cab, count[cabInfo.cab]*tripTime[cabInfo.cab]+tripTime[cabInfo.cab]));
+	   CabScheduleData cabScheduleData = null;
+	   while(n>0) {
+		   cabScheduleData = priorityScheduleQueue.remove();
+		   tripCount[cabScheduleData.cabIdentifier]+=1;
+		   priorityScheduleQueue.add(new CabScheduleData(cabScheduleData.cabIdentifier, tripCount[cabScheduleData.cabIdentifier]*tripTime[cabScheduleData.cabIdentifier]+tripTime[cabScheduleData.cabIdentifier]));
+		   n--;
 	   }
-	   return cabInfo.waitingTime;
+	   return cabScheduleData.lastScheduleTime;
 	   
 	}
 	
@@ -32,18 +32,17 @@ public class EfficientCabScheduling {
 			time = c.time;
 			c.time = c.cabTripTime + c.time;
 			trips++;
-			//time++;
 			p.add(c);
 		}
 		return time;
 	}
 	
-	static class CabInfo{
-		int cab;
-		int waitingTime;
-		CabInfo(int cabId, int time) {
-			cab =cabId;
-			waitingTime = time;
+	static class CabScheduleData{
+		int cabIdentifier;
+		int lastScheduleTime;
+		CabScheduleData(int cabId, int time) {
+			cabIdentifier =cabId;
+			lastScheduleTime = time;
 		}
 	}
 

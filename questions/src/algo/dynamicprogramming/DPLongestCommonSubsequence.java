@@ -40,11 +40,6 @@ public class DPLongestCommonSubsequence {
 				}
 			}
 		}
-		for(int i = 1 ; i <= m ; i++){
-			for(int j = 1 ; j <= n; j++)
-				System.out.print(maxLength[i][j] + " ");
-			System.out.println();
-		}
 		return maxLength[m][n];
 	}
 	

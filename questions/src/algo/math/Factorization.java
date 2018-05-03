@@ -3,14 +3,17 @@ package algo.math;
 import java.util.HashSet;
 import java.util.Set;
 
+import algo.util.Util;
+
 public class Factorization {
 
 	public static void main(String[] args) {
 		//factorize(140);
 	//	System.out.println();
-		doFacorize(96);
-		doFacorize(64);
+		//doFacorize(96);
+		//doFacorize(64);
 		doFacorize(36);
+		factorize(36);
 
 	}
 	
@@ -20,7 +23,7 @@ public class Factorization {
 	static void factorize(int n){
 		Set<Integer> s = new HashSet<>();
 		int count[] = new int[n+1];
-		for(int i=2;i*i<n;i++){
+		for(int i=2;i*i<=n;i++){
 			while(n%i==0){
 				s.add(i);
 				count[i]++;
@@ -31,6 +34,8 @@ public class Factorization {
 			s.add(n);
 			count[n]++;
 		}
+		System.out.println("Printing All the distinct prime factors");
+		System.out.println(s);
 		for(Integer x : s){
 			System.out.println(x + "^" + count[x]);
 		}
@@ -57,6 +62,8 @@ public class Factorization {
 		        minPrime[i] = i;
 		    }
 		}*/
+		System.out.println("Calculated Min Prime Array");
+		Util.printArray(minPrime);
 		
 		factorize(n, minPrime);
 	}

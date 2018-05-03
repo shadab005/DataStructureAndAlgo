@@ -4,13 +4,27 @@ import java.util.Scanner;
 
 public class EasyUberCount {
 
+	private static class Tuple{
+		int startIndex, endIndex;
+		Tuple(int s, int e){
+			startIndex = s;
+			endIndex = e;
+		}
+		public boolean collide(Tuple that) {
+			if(this.endIndex < that.startIndex) return false;
+			else return true;
+		}
+		public  static Tuple mix(Tuple prev, Tuple interval) {
+			return new Tuple(prev.startIndex, Math.max(prev.endIndex, interval.endIndex));
+		}
+	}
 	
 	public static void main(String[] args) {
 	   Scanner in = new Scanner(System.in);
 	   int n = in.nextInt();
-	   ArrayList<Interval> l = new ArrayList<>();
+	   ArrayList<Tuple> l = new ArrayList<>();
 	   for(int i = 0;i<n;i++) {
-		   l.add(new Interval(in.nextInt(), in.nextInt()));
+		   l.add(new Tuple(in.nextInt(), in.nextInt()));
 	   }
 	   solve(l);
 	   in.close();
@@ -18,50 +32,37 @@ public class EasyUberCount {
 	}
 	
 	
-	private static void solve(ArrayList<Interval> l) {
-		Comparator<Interval> byStart = (o1,o2)->o1.s-o2.s;
-		l.sort(byStart);
-		ArrayList<Interval> ans = new ArrayList<>();
-		Interval prev = l.get(0);
-		for(int i=1;i<l.size();i++) {
-			if(prev.intersect(l.get(i))) {
-				prev = merge(prev,l.get(i)); 
+	private static void solve(ArrayList<Tuple> listOfTuples) {
+		listOfTuples.sort(startComparator());
+		ArrayList<Tuple> mergeTuple = new ArrayList<>();
+		Tuple preTuple = listOfTuples.get(0);
+		for(int currentTuple=1;currentTuple<listOfTuples.size();currentTuple++) {
+			if(preTuple.collide(listOfTuples.get(currentTuple))) {
+				preTuple = Tuple.mix(preTuple,listOfTuples.get(currentTuple)); 
 			}else {
-				ans.add(prev);
-				prev = l.get(i);
+				mergeTuple.add(preTuple);
+				preTuple = listOfTuples.get(currentTuple);
 			}
 		}
-		ans.add(prev);
-		int ret = 0;
-		for(Interval z : ans) {
-			ret+=(z.e-z.s+1);
-			//System.out.println(z);
+		mergeTuple.add(preTuple);
+		int answer = 0;
+		for(Tuple tuple : mergeTuple) {
+			answer+=(tuple.endIndex-tuple.startIndex+1);
 		}
-		System.out.println(ret);
+		System.out.println(answer);
 		
 	}
-
-
-	private static Interval merge(Interval prev, Interval interval) {
-		return new Interval(prev.s, Math.max(prev.e, interval.e));
+	
+	private static Comparator<Tuple> startComparator(){
+		Comparator<Tuple> byStart = (o1,o2)->o1.startIndex-o2.startIndex;
+		return byStart;
 	}
 
 
-	static class Interval{
-		int s, e;
-		Interval(int x, int y){
-			s = x;
-			e = y;
-		}
-		public boolean intersect(Interval that) {
-			if(this.e >= that.s) return true;
-			return false;
-		}
-		
-		public String toString() {
-			return "["+s + " , " + e +" ]"; 
-		}
-	}
+	
+
+
+	
 	
 	/*
 public static void main(String[] args) throws IOException {
