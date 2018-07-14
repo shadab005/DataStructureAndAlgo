@@ -1,0 +1,19 @@
+package com.demo;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+@RunWith(Parameterized.class)
+public class MyClassTestWithParametrizedConstructor {
+
+	public int m1;
+	public int m2;
+	public int result;
+	
+	public MyClassTestWithParametrizedConstructor(int x, int y, int z) {
+		m1 = x;
+		m2 = y;
+		result = z;
+	}
+
+}

@@ -1,0 +1,11 @@
+package practise;
+
+import java.util.Collection;
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+
+}

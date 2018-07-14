@@ -1,0 +1,16 @@
+package com.demo;
+
+public class Person {
+
+	private String firstName;
+	private String lastName;
+	
+	public Person() {
+		
+	}
+	
+	public Person(String x, String y) {
+		firstName = x;
+		lastName = y;
+	}
+}

@@ -1,0 +1,15 @@
+package com.demo;
+
+import org.junit.Test;
+
+public class PersonTestWithGroupAssertion {
+
+	@Test
+	public void test() {
+//		assertAll("Fail", 
+//				()->assertEquals("ankit", p.getFirstName()),
+//				()->assertEquals("dewan", p.getLastName())
+//				);
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.demo;
+
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PersonTestWithGroupAssertion {
+
+	@Test
+	public void test() {
+		Person p = new Person("ankit", "dewan");
+		assertAll("Fail", ()->assertEquals("ankit", p.getFirstName()));
+	}
+
+}
