@@ -1,4 +1,3 @@
-import algo.util.Util;
 
 public class TravellingSalesmanPerson {
 
@@ -34,7 +33,7 @@ public class TravellingSalesmanPerson {
 	            }  
 	        }  
 	    }  
-	    Util.printArray(dp);
+	   // Util.printArray(dp);
 	    int ans = INF;  
 	    for (int i = 0; i < n; i++) {  
 	        ans = min(ans, dp[lim - 1][i]+dist[i][0]);  

@@ -1,12 +1,37 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TraveelingIsFun {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		// 6 0 4 1 4 3 6 4 3 6 2 5
+		int n = 6;
+		int threshold = 0;
+		List<Integer> o = Arrays.asList(1,4,3,6);
+		List<Integer> d = Arrays.asList(3,6,2,5);
+		connectedCities(n, threshold, o, d);
 
 	}
 	
+	
+	static List<Integer> connectedCities(int n, int threshold, List<Integer> o, List<Integer> d) {
+		
+		int or[] = new int[o.size()];
+		int de[] = new int[d.size()];
+		for(int i=0;i<or.length;i++) {
+			or[i]=o.get(i);
+			de[i]=d.get(i);
+		}
+		
+		int ans[] = connectedCities(n, threshold, or, de);
+		List<Integer> answer = new ArrayList<>();
+		for(int x : ans)answer.add(x);
+		return answer;
+		
+	}
 	
 	static int[] connectedCities(int n, int threshold, int[] originCities, int[] destinationCities) {
         Graph g = new Graph(n+1);
@@ -53,6 +78,7 @@ public class TraveelingIsFun {
 			ArrayList<Integer>[] vertex = (ArrayList<Integer>[])new ArrayList[n];
 			marked = new boolean[n];
 			id = new int[n];
+			this.vertex = vertex;
 			
 			
 			for(int i=0;i<n;i++)vertex[i]=new ArrayList<>();

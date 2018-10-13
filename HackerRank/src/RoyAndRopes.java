@@ -28,7 +28,6 @@ public class RoyAndRopes {
 			if(d>remaining)
 				ans = Math.max(ans, i+d);
 		}
-		Object o;
 		return ans;
 	}
 

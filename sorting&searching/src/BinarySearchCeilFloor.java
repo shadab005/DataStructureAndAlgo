@@ -39,7 +39,7 @@ public class BinarySearchCeilFloor {
 	}
 	
 	public static void main(String[] args) {
-	  	int a[] = {1,3};
+	  	int a[] = {1,3,9,10,12,13};
 	  	System.out.println(floorIndex(a, 8));
 	  	System.out.println(ceilIndex(a, 2));
 	  	System.out.println(ceilIndex(a, 4));

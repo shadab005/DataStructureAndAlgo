@@ -15,7 +15,6 @@ public class TestAnimal {
 		t.fun(d);
 		ArrayList<Animal> a = new ArrayList<>();
 		t.fun(a);
-		Object o;
 	}
 
 	public void addAnimal(List<? extends Animal> animals) {

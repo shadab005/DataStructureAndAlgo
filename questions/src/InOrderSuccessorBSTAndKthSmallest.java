@@ -33,6 +33,7 @@ public class InOrderSuccessorBSTAndKthSmallest {
 	
 	
 	public static void main(String args[]){
+		System.out.println("Running code");
 		/*BinarySearchTree bst = new BinarySearchTree();
 		bst.add(20);
 		bst.add(8);

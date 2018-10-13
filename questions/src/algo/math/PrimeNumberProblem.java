@@ -6,7 +6,7 @@ class PrimeNumberProblem {
 
 	//Seive of Eratosthenes
 	/*
-	 * Order  : nloglogn
+	 * Order  : n*log(logn)
 	 */
 	static void generateAllPrimeUptoN(int n){
 		Boolean isPrime[]=new Boolean[n+1];

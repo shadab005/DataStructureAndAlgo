@@ -51,7 +51,7 @@ public <U extends Number> void inspect(U u){}
  Multiple Bounds
  The preceding example illustrates the use of a type parameter with a single bound,
  but a type parameter can have multiple bounds: <T extends B1 & B2 & B3>
- We can’t have more than one class(but interface can be many) in multiple bounds.
+ We can't have more than one class(but interface can be many) in multiple bounds.
  
  A type variable with multiple bounds is a subtype of all the types listed in the bound.
  If one of the bounds is a class, it must be specified first.
@@ -104,3 +104,25 @@ So ArrayList<String> is a subtype of List<String>, which is a subtype of Collect
 
 Type inference:
 ..................
+
+
+
+
+...................
+Main features of generics:
+Compile time type safety.
+Removing risk of ClassCastException at run time.
+No casting.
+
+https://dzone.com/articles/hack-1-understanding-the-use-cases-of-generics
+
+Use Case Type 1: Algorithms and Data Structures Are First-Class Use Cases for Generics
+Use Case Type 2: Value Typed Boxes or Single Element Containers
+Use Case Type 3: Generic Util Methods With Abstract Classes
+Use Case Type 4: Generic Methods in Parallel Hierarchies of Classes
+Use Case Type 5: To Create Typesafe Heterogeneous Containers
+
+
+
+
+https://www.javaspecialists.eu/archive/Issue123.html

@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import algo.util.Util;
 
 //import java.util.Scanner;
 
@@ -102,7 +101,6 @@ class DPCandies {
 			}
 			i = j;
 		}
-		Util.printArray(dp);
 		long sum = 0;
 		for (i = 0; i < n; i++)
 			sum += dp[i];

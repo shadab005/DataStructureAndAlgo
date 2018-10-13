@@ -1,6 +1,9 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class MaximumSubArrayK {
 
-	static Deque<Integer> dq = new Deque<>();
+	static Deque<Integer> dq = new ArrayDeque<>();
 
 	static void printMax(int a[], int k) {
 		for (int i = 0; i < k; i++) {
