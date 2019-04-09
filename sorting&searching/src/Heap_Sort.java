@@ -42,7 +42,7 @@ public class Heap_Sort extends Sort {
 	}
 
 	// This will swim up the element till it is larger than its parent
-	// Basically, swim funtion will push bigger elements up
+	// Basically, swim function will push bigger elements up
 	private static void swim(int a[], int k) {
 		while (k > 0 && a[(k - 1) / 2] < a[k]) {
 			swap((k - 1) / 2, k, a);

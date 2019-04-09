@@ -9,6 +9,7 @@ public class MergeSort extends Sort{
 	 * Best Case Time Complexity : O(n log n)
 	 * Average Time Complexity : O(n log n)
 	 *  
+	 *  low, high ->indices of first and last term
 	 */
 	public static void mergeSort(int a[], int low, int high) {
 		int mid;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class MyGraph {
 
 	private int n = 0;
+	//Graph using array of ArrayList
 	public ArrayList<Integer>[] vertex;
 	
 	@SuppressWarnings("unchecked")

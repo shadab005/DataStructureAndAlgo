@@ -40,7 +40,7 @@ public class DiGraph {
 		System.out.println();
 	}
 
-	// A digraph has topppolical order iff no directed cylcle
+	// A digraph has topological order iff no directed cycle
 	public void topologicalSort() {
 		
 		visited = new boolean[n];

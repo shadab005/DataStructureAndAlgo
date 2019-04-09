@@ -144,7 +144,8 @@ public class LList {
 	  l1.add(13);
 	  l1.add(15);
 	  System.out.println(l1);
-	  l1.insertInBetween(l1.head);
+	 // l1.insertInBetween(l1.head);
+	  l1.reverse();
 	  System.out.println(l1); 
 	  
   }

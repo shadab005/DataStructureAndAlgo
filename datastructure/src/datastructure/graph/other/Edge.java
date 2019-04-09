@@ -31,6 +31,9 @@ public class Edge implements Comparable<Edge> {
         return String.format("%d---%d %.5f", v, w, weight);
     }
 
+	/*
+	 * Comparing weight of edges
+	 */
 	@Override
 	public int compareTo(Edge that) {
 		return Double.compare(this.w, that.w);

@@ -319,11 +319,11 @@ public class Graph {
 		distance[start] = 0;
 		int min=0, minNode=0;
 		for(int i=1;i<numUsers;i++){ 
-			//This loop increaments n times and for each the internal loop increments n times. Therefore O(n2)
-			min = 500;//must be actualy infinity initialy
+			//This loop increments n times and for each the internal loop increments n times. Therefore O(n2)
+			min = 500;//must be actually infinity initially
 			//selection minimum from distance matrix such that its not visited already
 			for(int j=1;j<distance.length;j++){ //O(n)
-				//if we maintain min priority queue this can be obtained in logn order
+				//if we maintain min priority queue this can be obtained in log(n) order
 				if(visited[j] == 0){
 					if(distance[j] < min && distance[j]>0){
 						min = distance[j];
@@ -394,7 +394,7 @@ public class Graph {
 	 */
 	
 	/*
-	 * Prims algorith start with any node
+	 * Prims algorithm start with any node
 	 * And from all the edges connected with this node it select the minimum edge cost node 
 	 * and connect it
 	 * Now the set of edges available will be  new node added and the first node edges
@@ -448,7 +448,7 @@ public class Graph {
 	 * Sort the edges in terms if weight
 	 * Pick the minimum and connect the two node with this minimum weight
 	 * loop:
-	 *   pick next minum if not already picked up and connect the two nodes with this edge
+	 *   pick next minimum if not already picked up and connect the two nodes with this edge
 	 * repeat until n-1 edges are selected to connect n nodes
 	 */
 	public void minimumSpanningTreeKruskal(){

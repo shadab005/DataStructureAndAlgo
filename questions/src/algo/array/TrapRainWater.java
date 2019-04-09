@@ -1,3 +1,4 @@
+package algo.array;
 import java.util.*;
 
 class TrapRainWater {
