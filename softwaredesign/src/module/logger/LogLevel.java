@@ -1,4 +1,4 @@
-package batman_test.logger;
+package module.logger;
 
 public enum LogLevel {
 	ERROR(1), INFO(2), DEBUG(3);

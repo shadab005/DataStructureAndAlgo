@@ -1,56 +1,48 @@
 package module.logger;
 
 public class Logger {
+	
+	private LogLevel logLevel;
 
-	private Level level;
+	private LogHandler handler;
 	
-	private String name;
-	
-	Appender appender;
-	
-	private Logger(String name) {
-		this.name = name;
-		level = Level.INFO;
+	public Logger(LogLevel logLevel, LogHandler handler) {
+		this.logLevel = logLevel;
+		this.handler = handler;
 	}
 	
-	
-	public void info(String msg) {
-		log(Level.INFO, msg);
+	public void logInfo(String message) {
+		log(new LogRecord(LogLevel.INFO, message));
 	}
 	
-	public void debug(String msg) {
-		log(Level.DEBUG, msg);
+    public void logDebug(String message) {
+    	log(new LogRecord(LogLevel.DEBUG, message));
 	}
-	
-	public void error(String msg) {
-		log(Level.ERROR, msg);
+    
+    public void logError(String message) {
+    	log(new LogRecord(LogLevel.ERROR, message));
 	}
-	
-	public void log(Level level, String msg) {
-		if(!canBeLogged(level))return;
-		LogRecord lr = new LogRecord(level, msg);
-		lr.setLoggerName(name);
-		log(lr);
+    
+    public void log(LogLevel level, String message) {
+    	log(new LogRecord(level, message));
 	}
-	
-	public void log(LogRecord log) {
-		/*for(Handler h: handlers) {
-			h.publish(log);
-		}*/
-		appender.appendLogRecord(log);
+    
+    private void log(LogRecord logRecord) {
+		if(canBeLogged(logRecord)) {
+			handler.handle(logRecord);
+		}
 	}
-	
-	private boolean canBeLogged(Level level) {
-		if(level.lessThan(this.level))return false;
-		return true;
+
+	private boolean canBeLogged(LogRecord logRecord) {
+		return logLevel.isMorePriority(logRecord.getLogLevel());
 	}
-	
-	
-	public String getName() {
-		return name;
+
+	public LogLevel getLogLevel() {
+		return logLevel;
 	}
-	public static Logger getLogger(String loggerName) {
-		return new Logger(loggerName);
+
+	public void setLogLevel(LogLevel logLevel) {
+		this.logLevel = logLevel;
 	}
-	
+
 }

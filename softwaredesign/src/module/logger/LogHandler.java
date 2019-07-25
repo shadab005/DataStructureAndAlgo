@@ -1,4 +1,4 @@
-package batman_test.logger;
+package module.logger;
 
 import java.util.List;
 import java.util.Map;
