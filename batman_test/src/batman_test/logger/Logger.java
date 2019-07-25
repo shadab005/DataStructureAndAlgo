@@ -4,17 +4,11 @@ public class Logger {
 	
 	private LogLevel logLevel;
 
-	private Appender appender;
+	private LogHandler handler;
 	
-	public Logger() {
-		logLevel = LogLevel.INFO;
-		appender = new Appender(new ConsoleWriter());
-	}
-	
-	public Logger(LogLevel logLevel, LogWriter writer) {
+	public Logger(LogLevel logLevel, LogHandler handler) {
 		this.logLevel = logLevel;
-		appender = new Appender(writer);
-		
+		this.handler = handler;
 	}
 	
 	public void logInfo(String message) {
@@ -29,14 +23,18 @@ public class Logger {
     	log(new LogRecord(LogLevel.ERROR, message));
 	}
     
-    public void log(LogRecord logRecord) {
+    public void log(LogLevel level, String message) {
+    	log(new LogRecord(level, message));
+	}
+    
+    private void log(LogRecord logRecord) {
 		if(canBeLogged(logRecord)) {
-			appender.append(logRecord);
+			handler.handle(logRecord);
 		}
 	}
 
 	private boolean canBeLogged(LogRecord logRecord) {
-		return logLevel.isLessPriority(logRecord.getLogLevel());
+		return logLevel.isMorePriority(logRecord.getLogLevel());
 	}
 
 	public LogLevel getLogLevel() {

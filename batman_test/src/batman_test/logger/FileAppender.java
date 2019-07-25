@@ -2,16 +2,16 @@ package batman_test.logger;
 
 import java.io.File;
 
-public class LogFileWriter implements LogWriter{
+public class FileAppender implements Appender{
 
 	private File file;
 	
-	public LogFileWriter(String fileName) {
+	public FileAppender(String fileName) {
 		file = new File(fileName);
 	}
 	
 	@Override
-	public void write(LogRecord record) {
+	public void append(LogRecord record) {
 		// TODO Auto-generated method stub
 		
 	}
