@@ -34,7 +34,7 @@ public class ParallelTasktest {
             try {
             	System.out.println("Result : " + f.get());
             } catch (InterruptedException | ExecutionException e) {
-                System.out.println("I am in exception block");
+                System.out.println("I am in exception block " + e);
             }
         });
 	/*	for(Future<?> f : futures) {

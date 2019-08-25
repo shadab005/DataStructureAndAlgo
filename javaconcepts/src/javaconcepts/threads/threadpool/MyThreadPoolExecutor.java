@@ -34,10 +34,10 @@ public class MyThreadPoolExecutor {
 	private ThreadPool[] pool;
 	private boolean isStopped = false;
 
-	MyThreadPoolExecutor(int limit, int maxTask) {
+	MyThreadPoolExecutor(int threadCount, int maxTask) {
 		queue = new MyBlockingQueue<>(maxTask);
-		pool = new ThreadPool[limit];
-		for (int i = 0; i < limit; i++)
+		pool = new ThreadPool[threadCount];
+		for (int i = 0; i < threadCount; i++)
 			pool[i] = new ThreadPool(queue);
 		for (ThreadPool thread : pool)
 			thread.start();
