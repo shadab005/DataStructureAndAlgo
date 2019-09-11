@@ -66,8 +66,12 @@ public class WeightedGraphCycleFinder {
 		g.addEdge(new Edge(1,2,0));
 		g.addEdge(new Edge(2,3,0));
 		g.addEdge(new Edge(1,4,0));
+		g.addEdge(new Edge(4,3,0));
 		WeightedGraphCycleFinder finder = new WeightedGraphCycleFinder(g);
 		System.out.println(finder.isCyclic());
+		for(Edge e : finder.cycle()) {
+			System.out.println(e);
+		}
 		
 	}
 

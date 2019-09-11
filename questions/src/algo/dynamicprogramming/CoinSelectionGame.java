@@ -44,7 +44,6 @@ public class CoinSelectionGame {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int a[] = {5,3,7,10};
 		int b[]= {8, 15, 3, 7};
 		int c[] = {20, 30, 2, 2, 2, 10};

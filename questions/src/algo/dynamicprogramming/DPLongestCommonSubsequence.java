@@ -1,5 +1,9 @@
 package algo.dynamicprogramming;
 
+/*
+ * ex:
+ * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
+ */
 public class DPLongestCommonSubsequence {
 
 	

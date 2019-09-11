@@ -3,7 +3,7 @@ package algo.dynamicprogramming;
 public class DPCoinChangeProblem {
 
 	/*
-	 * M(j)=Min(j-coins[i])+1 , for all i and j-coin[i]>=0
+	 * M(j)=Min(M(j-coins[i]))+1 , for all i and j-coin[i]>=0
 	 */
 	public static int minCoinChange(int c, int coins[]){
 		int dp[] = new int[c+1]; //Gives number of coins to make this denomination
@@ -20,11 +20,12 @@ public class DPCoinChangeProblem {
 				dp[i]=min+1;
 			}
 		}
-		for(int k = 0; k<=c;k++){
+		/*for(int k = 0; k<=c;k++){
 			System.out.println("dp["+k+"]="+dp[k]);
-		}
+		}*/
 		return dp[c];
 	}
+	
 	public static void main(String args[]){
 /*		//int coins[] = {25, 10, 5};
 		int c=30; //coin

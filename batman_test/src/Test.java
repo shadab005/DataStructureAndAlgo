@@ -1,20 +1,14 @@
-import java.util.stream.IntStream;
-
 public class Test {
 
-	public static void main(String[] args) {
-
-
-		
-	    IntStream i2 = IntStream.range(1, 5);
-	    i2.forEach(System.out::println);
-	    
-	    System.out.println("Next");
-	    IntStream i1 = IntStream.rangeClosed(1, 5);
-	    i1.forEach(System.out::println);
-	    
-	    System.out.println(Boolean.valueOf((String) null));
+	public static void main(String[] args) throws InterruptedException  {
+		int b[] = new int[] {3,3,2};
+		fun(1,b);
 
 	}
-
+	
+	static void fun(int x, int... a) {
+		int b[] = new int[] {3,3,2};
+		System.out.println(a);
+		
+	}
 }

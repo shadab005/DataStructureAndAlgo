@@ -5,7 +5,7 @@ public class MajorityInArray_MooresVoting {
 	/*
 	 * The algorithm works in two phase.
 	 * First, it finds the probable candidate for majority (i.e count > n/2)
-	 * Then, it versifies by traversing the array once again
+	 * Then, it verifies by traversing the array once again
 	 * Complexity : O(n) 
 	*/
 	
