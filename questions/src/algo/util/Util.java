@@ -40,6 +40,17 @@ public class Util {
 		}
 	}
 	
+	public static void printArray(char a[][]){
+		int m  = a.length;
+		int n  = a[0].length;
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print(a[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
 	public static void printArray(long a[][]){
 		int m  = a.length;
 		int n  = a[0].length;

@@ -1,6 +1,6 @@
  package leetcode;
 
-public class DivideTwoIntegers_29 {
+public class _29_DivideTwoIntegers {
 
 	public static void main(String[] args) {
 		System.out.println(divide(Integer.MIN_VALUE, 2));

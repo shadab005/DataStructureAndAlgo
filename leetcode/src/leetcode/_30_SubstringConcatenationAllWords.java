@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SubstringConcatenationAllWords_30 {
+public class _30_SubstringConcatenationAllWords {
 
 	public static void main(String[] args) {
 		String s = "barfoofoobarthefoobarman";

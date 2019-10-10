@@ -13,6 +13,7 @@ public class MyGraph {
 		this.n = n;
 		ArrayList<Integer>[] a = (ArrayList<Integer>[])new ArrayList[n];
 		for(int i=0;i<n;i++)a[i]=new ArrayList<>();
+		this.vertex = a;
 	}
 	
 	public void connect(int v, int w) {

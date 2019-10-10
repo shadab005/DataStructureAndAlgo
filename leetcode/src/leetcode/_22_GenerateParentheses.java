@@ -3,10 +3,10 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenerateParentheses_22 {
+public class _22_GenerateParentheses {
 
 	public static void main(String[] args) {
-		System.out.println(generateParenthesis(1));
+		System.out.println(generateParenthesis(4));
 
 	}
 	

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LetterCombinationPhoneNumber_17 {
+public class _17_LetterCombinationPhoneNumber {
 
 	public static void main(String[] args) {
 

@@ -1,6 +1,7 @@
 package algo.common;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
  * LRU/Oldest accessed key is at the head of the linked list
@@ -14,106 +15,101 @@ import java.util.HashMap;
  */
 public class LRUCache {
 	
-	HashMap<Integer, Node> map;
-	private Node head;
-	private Node tail;
 	private int capacity;
-	private int size;
+	private int currentSize;
+	private DLL dll;
+	private Map<Integer, Node> keyDllNodeMap;
 	
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        dll = new DLL();
+        keyDllNodeMap = new HashMap<>();
+    }
+    
+    //return -1 if the key is not present in the cache
+    public int get(int key) {
+      if(keyDllNodeMap.containsKey(key)) {
+    	int val = keyDllNodeMap.get(key).value;
+    	put(key,val);
+    	return val;
+      } 
+      return -1;
+    }
+    
+    //if the cache is full, evict the least recently used element. And insert this key,val
+    //put logic : add if new at the end of the linked list
+    //if already existing remove from it's position and insert at end
+    public void put(int key, int value) {
+    	if(!keyDllNodeMap.containsKey(key)) {
+    		//CASE : NEW NODE
+    		if(cacheIsFull()) evict();
+    		Node newNode = new Node(key, value);
+    		dll.insertAtEnd(newNode);
+    		keyDllNodeMap.put(key, newNode);
+    		currentSize++;
+    	} else {
+    		//CASE : UPDATING EXISTING NODE
+    		Node existingNode = keyDllNodeMap.get(key);
+    		existingNode.value = value;
+    		dll.remove(existingNode);
+    		dll.insertAtEnd(existingNode);
+    	}
+    }
+    
+    private void evict() {
+	    Node node = dll.head;
+	    dll.remove(node);
+	    keyDllNodeMap.remove(node.key);
+    	currentSize--;
+	}
+
+	private boolean cacheIsFull() {
+		return currentSize == capacity;
+	}
+
 	class Node {
-		Node(int k, int v){key=k;value=v;}
-		int key;
-		int value;
-		Node left;
-		Node right;
-	}
-
-	public LRUCache(int capacity) {
-		map = new HashMap<>();
-		this.capacity= capacity;
-	}
-
-	public int get(int key) {
-		if(map.containsKey(key)) {
-			//get the node and put it at end
-			Node node = map.get(key);
-			delete(node);
-			insertAtEnd(node);			
-			return node.value;
+		public Node(int key, int value) {
+			this.key = key;
+			this.value = value;
 		}
-		else return -1;
+		private int key;
+		private int value;
+		private Node next;
+		private Node prev;
 	}
-
-	public void put(int key, int value) {		
-		if(map.containsKey(key)) {
-			//update the value in the Node and put the node at the end
-			Node node = map.get(key);
-			node.value = value;
-			delete(node);
-			insertAtEnd(node);
-		} else {
-			if(size == capacity) evict();
-			//This is a new node case
-			Node node = new Node(key,value);
-			map.put(key, node);
-			insertAtEnd(node);
-			size++;
-		}
-		
-	}
-	
-	private void insertAtEnd(Node node) {
-		if(tail == null) {
-			head = tail = node;
-		} else {
-			tail.right = node;
-			node.left = tail;
-			tail = node;
-		}
-	}
-
-
-	private Node delete(Node node) {
-		//if it is the first node
-		//if it is the mid node
-		//if it is the tail node
-		if(head == node) {
-			//first node case
-			head = head.right;
-			if(head==null) tail = null;
-			else {
-				head.left = null;
+    
+    class DLL {
+    	Node head;
+    	Node tail;
+		public void remove(Node existingNode) {
+			Node prev = existingNode.prev;
+			Node next = existingNode.next;
+			if (prev != null) {
+				prev.next = next;
 			}
-		} else if (tail == node) {
-			//last node case
-			tail = tail.left;
-			tail.right.left = null;
-			tail.right = null;
-		} else {
-			//mid node case
-			Node prev = node.left;
-			Node next = node.right;
-			
-			prev.right = next;
-			next.left = prev;
-			node.left = node.right = null;
+			if (next != null) {
+				next.prev = prev;
+			}
+			if (existingNode == head) {
+				head = next;
+			}
+			if (existingNode == tail) {
+				tail = prev;
+			}
+			existingNode.prev = null;
+            existingNode.next = null;
 		}
-		return node;
-	}
-
-	
-	/*
-	 * Evicts the LRU node (first node from DLL as per the implementation) from LinkedList and map and reduce size
-	 */
-	private void evict() {
-		if(size > 0) {
-			map.remove(head.key);
-			head = head.right;
-			if(head == null) tail = null;
-			else head.left = null;
-			size--;
-		}
-	}
+		public void insertAtEnd(Node n) {
+    		if(head == null) {
+    			head = n;
+    			tail = n;
+    		} else {
+    			tail.next = n;
+    			n.prev = tail;
+    			tail = n;
+    		}
+    	}
+    }
 
 	public static void main(String[] args) {
 		LRUCache l = new LRUCache(1);

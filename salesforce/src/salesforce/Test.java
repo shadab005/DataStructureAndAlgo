@@ -21,31 +21,17 @@ public class Test {
 	}
 
 	static void medians(int[] a) {
-		Comparator<Integer> asc = (o1, o2) -> o1 - o2;
-		Comparator<Integer> desc = (o1, o2) -> o2 - o1;
-
-		PriorityQueue<Integer> left = new PriorityQueue<>(desc);
-		PriorityQueue<Integer> right = new PriorityQueue<>(asc);
-
+		PriorityQueue<Integer> left = new PriorityQueue<>((o1, o2) -> o2 - o1);
+		PriorityQueue<Integer> right = new PriorityQueue<>();
 		for (int i = 0; i < a.length; i++) {
-
-			if (left.size() <= right.size()) {
-
-				left.add(a[i]);
-
-			} else {
-				right.add(a[i]);
-			}
-
+			if (left.size() <= right.size())left.add(a[i]);
+			else right.add(a[i]);
 			if (!left.isEmpty() && !right.isEmpty()) {
 				if (left.peek() > right.peek()) {
-					int leftMax = left.remove();
-					int rightMin = right.remove();
-					left.add(rightMin);
-					right.add(leftMax);
+					left.add(right.remove());
+					right.add(left.remove());
 				}
 			}
-
 			if (left.size() == right.size()) {
 				  System.out.println((left.peek() + right.peek()) / 2);
 			} else if (left.size() > right.size()) {
@@ -53,9 +39,7 @@ public class Test {
 			} else {
 				System.out.println(right.peek());
 			}
-
 		}
-
 	}
 
 	static int[] doit(float[] a) {

@@ -10,7 +10,7 @@ public class BookingService {
 	private CabFinder cabFinder;
 	private CabSelector cabSelector;
 	private TripManager tripManager;
-	private CabManager cabManager; //Should internally have the logic to talk to the particular cab based on can Id
+	private CabManager cabManager; //Should internally have the logic to talk to the particular cab based on cab Id
 
 	public Trip bookTrip(Request request) {
 		List<Cab> cabs = cabFinder.fetchNearByCabs(request.getCabType(), request.getPickUpLocation()); 

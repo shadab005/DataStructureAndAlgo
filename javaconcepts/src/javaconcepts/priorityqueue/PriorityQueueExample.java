@@ -28,7 +28,7 @@ public class PriorityQueueExample {
 		 * and in that case I don't need to 
 		 */
 
-		PriorityQueue<Student> pq = new PriorityQueue<Student>(byName);
+		PriorityQueue<Student> pq = new PriorityQueue<Student>(byRoll);
 		pq.add(new Student("Shadab",5));
 		pq.add(new Student("Sud",12));
 		pq.add(new Student("Ayubi",8));
