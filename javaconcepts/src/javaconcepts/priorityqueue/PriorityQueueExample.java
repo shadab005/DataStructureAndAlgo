@@ -20,7 +20,7 @@ public class PriorityQueueExample {
 	
 	public static void main(String[] args) {
 		Comparator<Student> byName = (o1,o2)->o1.name.compareTo(o2.name);
-		Comparator<Student> byRoll = (x,y)->x.roll-y.roll; //For max heap
+		Comparator<Student> byRoll = (x,y)->x.roll-y.roll; //For min heap
 		
 		/*
 		 * Here we are passing comparator to our pq.

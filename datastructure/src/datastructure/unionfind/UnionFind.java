@@ -1,24 +1,24 @@
 package datastructure.unionfind;
 public class UnionFind {
 	
-	private int[] id;  //Stores parent of id
-	private int[] numChild;
+	private int[] parent;  //Stores parent of id
+	private int[] numChild; //Number of children of i'th node
 	
 	public UnionFind(int n){
-		id = new int[n];
+		parent = new int[n];
 		numChild  = new int[n];
-		for(int i=0;i<n;i++)id[i] = i;
+		for(int i=0;i<n;i++)parent[i] = i;
 	}
 	
 	public int root(int i){
-		while(i!=id[i]) i =id[i];
+		while(i!=parent[i]) i =parent[i];
 		return i;
 	}
 	
 	public int rootInPathCompression(int i){
-		while(i!=id[i]){
-			id[i]=id[id[i]];
-			i =id[i];
+		while(i!=parent[i]){
+			parent[i]=parent[parent[i]];
+			i =parent[i];
 		}
 		return i;
 	}
@@ -34,17 +34,17 @@ public class UnionFind {
 	  int j = root(q);
 	  if(i==j) return;
 	  if(numChild[i]<numChild[j]){
-		  id[i]=j;
+		  parent[i]=j;
 		  numChild[j] = numChild[j]+numChild[i]+1;
 	  }else{
-		  id[j] = i;
+		  parent[j] = i;
 		  numChild[i]=numChild[i]+numChild[j]+1;
 	  }
 	}
 	
 	public void traverse(){
 		System.out.println("Connection array");
-		for(int i: id){
+		for(int i: parent){
 			System.out.print(i + " ");
 		}
 		System.out.println();

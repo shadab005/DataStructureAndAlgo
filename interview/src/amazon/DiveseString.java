@@ -23,9 +23,9 @@ public class DiveseString {
 
         PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
 
-        int cnt = 0;
+        //int cnt = 0;
         for (Map.Entry<Character, Integer> e: map.entrySet()) {
-            cnt += e.getValue();
+          //  cnt += e.getValue();
             pq.add(e);
         }
 
