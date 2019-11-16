@@ -17,6 +17,10 @@ public class KMPPatternMatching {
 
 	}
 	
+	/**
+	 * Returns the first index in text which matches the pattern
+	 * If no match then returns 1
+	 */
 	public int KMP(char[] text, char[] pattern){
 		int n = text.length;
 		int m = pattern.length;

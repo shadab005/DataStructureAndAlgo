@@ -52,7 +52,8 @@ public class ConnectLevelNextRightTree
     		count = childCount;
     	}
     }*/
-	void connect(Node root) {
+	
+	 void connect(Node root) {
 		Queue<Node> q = new ArrayDeque<>();
 		q.add(root);
 		Node prev = null;

@@ -9,7 +9,7 @@ public class MyGraph {
 	public ArrayList<Integer>[] vertex;
 	
 	@SuppressWarnings("unchecked")
-	MyGraph(int n){
+	public MyGraph(int n){
 		this.n = n;
 		ArrayList<Integer>[] a = (ArrayList<Integer>[])new ArrayList[n];
 		for(int i=0;i<n;i++)a[i]=new ArrayList<>();
@@ -19,6 +19,10 @@ public class MyGraph {
 	public void connect(int v, int w) {
 		vertex[v].add(w);
 		vertex[w].add(v);
+	}
+	
+	public Iterable<Integer> adj(int v){
+		return vertex[v];
 	}
 	
 	public int size() {

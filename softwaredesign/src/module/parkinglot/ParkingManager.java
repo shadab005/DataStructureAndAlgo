@@ -20,7 +20,7 @@ public class ParkingManager {
 	 * @param vehicle
 	 * @return parking id 
 	 */
-	public ParkingTicket park(Vehicle vehicle) throws Exception{
+	public ParkingTicket park(Vehicle vehicle) {
 		Slot slot = slotManager.getSlot(vehicle.getType());
 		ParkingTicket ticket = ticketManager.generateParkingTicket(vehicle, slot);
 		return ticket;
