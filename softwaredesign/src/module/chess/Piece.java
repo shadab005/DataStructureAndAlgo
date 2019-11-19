@@ -6,10 +6,12 @@ public class Piece {
 	
 	PieceType pieceType;
 	
-	
-	
 	public PieceColor getPieceColor() {
 		return pieceColor;
+	}
+	
+	public PieceType getPieceType() {
+		return pieceType;
 	}
 	
 }

@@ -9,6 +9,10 @@ public class Move {
 	
 	private Position toPosition;
 	
+	public Move(Piece pieceAt, Position from, Position to) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Piece getPiece() {
 		return piece;
 	}
