@@ -2,7 +2,8 @@
 public class GridUniquePath {
 
 	public static void main(String[] args) {
-		System.out.println(uniquePaths(15,9));
+		System.out.println(uniquePaths(53, 4));
+		System.out.println(uniquePaths(53, 4));
 		
 
 	}

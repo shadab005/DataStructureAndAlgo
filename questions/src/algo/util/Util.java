@@ -45,8 +45,8 @@ public class Util {
 	}
 	
 	public static void printArray(int a[][]){
-		int m  = a.length;
-		int n  = a[0].length;
+		int m  = a.length; //Number of rows
+		int n  = a[0].length; //Number of columns
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				System.out.print(a[i][j] + " ");
@@ -56,7 +56,7 @@ public class Util {
 	}
 	
 	public static void printArray(char a[][]){
-		int m  = a.length;
+		int m  = a.length; 
 		int n  = a[0].length;
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {

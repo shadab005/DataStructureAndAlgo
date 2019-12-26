@@ -27,7 +27,7 @@ public class ArticulationPoint {
 	
 	private int[] low; //low[i] is the lowest discovery time encountered due to edges in subtree of i.
     private int[] discoveryTime;
-    private int cnt;
+    private int timer;
     private boolean[] articulation;
 	
 	public ArticulationPoint(MyGraph g) {
@@ -47,7 +47,7 @@ public class ArticulationPoint {
 	
 	//p is the parent from which we have come to u
 	private void dfs(MyGraph g, int p, int u) {
-		discoveryTime[u] = cnt++;
+		discoveryTime[u] = timer++;
 		low[u] = discoveryTime[u];
 		int childComponent = 0;
 		
@@ -57,7 +57,7 @@ public class ArticulationPoint {
 				childComponent++;
 				dfs(g, u, c);
 				low[u] = Math.min(low[u], low[c]);
-				if (low[c] >= discoveryTime[u] && u != p) {
+				if (low[c] >= discoveryTime[u] && u != p) { //there is no backedge
 					articulation[u] = true;
 				}
 			} else if(c != p){

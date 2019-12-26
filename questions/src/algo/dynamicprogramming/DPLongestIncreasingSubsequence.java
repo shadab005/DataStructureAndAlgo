@@ -1,7 +1,10 @@
 package algo.dynamicprogramming;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Stack;
+
+import algo.util.Util;
 
 public class DPLongestIncreasingSubsequence {
 
@@ -54,6 +57,26 @@ public class DPLongestIncreasingSubsequence {
         }
 		return m;
 	}
+	
+	public static int lengthOfLIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            System.out.println("Dp Array : ");
+            Util.printArray(dp);
+            System.out.printf("Searching %d in dp array of len = %d. Result index = %d \n", num,len, i);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+	
 	//1 5 2 3
 	public static void main(String[] args) {
 		int a[]={ 15, 27, 14, 38, 26, 55, 46, 65, 85 };
@@ -64,6 +87,7 @@ public class DPLongestIncreasingSubsequence {
 		int f[] = {3,2,6,4,5,1};
 		int g[] = {10, 13, 17, 18, 1, 2};
 		System.out.println(longestIncreasingSubsequence(a));
+		System.out.println(lengthOfLIS(a));
 		System.out.println(lis(a,a.length-1,Integer.MAX_VALUE));
 		
 		System.out.println(longestIncreasingSubsequence(b));

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
+ * Strong writer priority
+ * 
  * A thread is granted read reentrance if it can get read access (no writers or write requests), 
  * or if it already has read access (regardless of write requests). or if it is a writer
  * 
@@ -30,11 +32,7 @@ public class MyReadWriteReentrantLock {
        while(!canGetReadAccess()) {
     	   wait();
        }
-       if(readingThreads.get(Thread.currentThread())!=null) {
-    	   readingThreads.put(Thread.currentThread(), readingThreads.get(Thread.currentThread())+1);
-       }else {
-    	   readingThreads.put(Thread.currentThread(), 1);
-       }
+       readingThreads.put(Thread.currentThread(), readingThreads.getOrDefault(Thread.currentThread(), 0)+1);
 	}
 
 	public synchronized void readUnlock() {
@@ -59,6 +57,7 @@ public class MyReadWriteReentrantLock {
 	}
 
 	public synchronized void writeUnlock() {
+		if(Thread.currentThread() != writingThread) throw new RuntimeException("This thread doesn't have the write lock. So cannot call unlock");
 		writers--;
 		if (writers == 0) {
 			writingThread = null;

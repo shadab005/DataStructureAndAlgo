@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 
 //interview
-public class LongestSubstringWithDistinctCharacters {
+public class _3_LongestSubstringWithDistinctCharacters {
 
 	public static void main(String[] args) {
 		System.out.println(lengthOfLongestSubstring("aab"));
@@ -31,5 +31,17 @@ public class LongestSubstringWithDistinctCharacters {
 		}
 		return max;
 	}
+	
+	 static public int lengthOfLongestSubstringII(String s) {
+		 int ans = 0;
+		 int index[] = new int[128];
+		 int j = 0;
+		 for(int i = 0 ; i < s.length() ; i++) {
+			 j = Math.max(index[s.charAt(i)],j);
+			 ans = Math.max(ans, i-j+1);
+			 index[s.charAt(i)] = i+1;
+		 }
+		 return ans;
+	 }
 
 }

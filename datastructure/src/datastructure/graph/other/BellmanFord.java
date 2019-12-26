@@ -87,7 +87,6 @@ public class BellmanFord {
 	}
 
 	private void findNegativeCycle() {
-		System.out.println("Lomax");
 		int n = edgeTo.length;
 		WeightedGraph wg = new WeightedGraph(n);
 		for (int v = 0; v < n; v++) {
@@ -95,7 +94,6 @@ public class BellmanFord {
 		}
 		WeightedGraphCycleFinder finder = new WeightedGraphCycleFinder(wg);
 		cycle = finder.cycle();
-		System.out.println("Lolmaxend");
 	}
 
 	private boolean hasNegativeCycle() {

@@ -2,6 +2,8 @@ package datastructure.graph.other;
 
 import java.util.ArrayDeque;
 
+
+//Check GraphCyclicFinder for simple solution
 public class WeightedGraphCycleFinder {
 	
 	private ArrayDeque<Edge> stack;    // directed cycle (or null if no such cycle)

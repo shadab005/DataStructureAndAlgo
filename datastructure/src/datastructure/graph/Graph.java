@@ -378,7 +378,8 @@ public class Graph {
 	}
 	
 	/*
-	 * There is difference between dijstra and Prims mst
+	 * There is difference between dijkstra and Prims mst
+	 * Note : Any valid triangle (sum of two sides greater than the third will have different tree of dijkstra and prims
 	 *  ex : 
 	 *        10
 	 *  a ========= b

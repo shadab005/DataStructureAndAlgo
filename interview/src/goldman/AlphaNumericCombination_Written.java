@@ -2,6 +2,8 @@ package goldman;
 
 import java.util.Arrays;
 
+
+//Better solution : _111_DecodePossibleString
 public class AlphaNumericCombination_Written {
 
 	public static void main(String[] args) {
