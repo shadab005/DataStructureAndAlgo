@@ -37,10 +37,10 @@ public class ArticulationPoint {
 	     
 	     for (int v = 0; v < g.size(); v++)
 	            low[v] = -1;
-	        for (int v = 0; v < g.size(); v++)
+	     for (int v = 0; v < g.size(); v++)
 	            discoveryTime[v] = -1;
 	        
-	        for (int v = 0; v < g.size(); v++)
+	     for (int v = 0; v < g.size(); v++)
 	            if (discoveryTime[v] == -1)
 	                dfs(g, v, v);
 	}

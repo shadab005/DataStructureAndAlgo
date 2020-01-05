@@ -22,6 +22,17 @@ public class DPLongestCommonSubsequence {
 		return 0;
 	}
 	
+	//m is index of s1 starting from last index. And similary n is for s2
+	public static int lcs(String s1, String s2, int m, int n, Integer dp[][]) {
+		if(m < 0 || n < 0) return 0;
+		if(dp[m][n]!=null) return dp[m][n];
+		if(s1.charAt(m) == s2.charAt(n)) dp[m][n]=1+lcs(s1, s2, m-1, n-1, dp);
+		else {
+			dp[m][n] = Math.max(lcs(s1, s2, m-1, n, dp), lcs(s1, s2, m, n-1, dp));
+		}
+		return dp[m][n];
+	}
+	
 	/*
 	 * m[i][j]= { 0 , if i or j = 0
 	 *            m[i-1][j-1]+1 ,if i and j > 0 and x[i]=y[j]

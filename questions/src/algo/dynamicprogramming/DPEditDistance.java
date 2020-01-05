@@ -4,6 +4,9 @@ import algo.util.Util;
 public class DPEditDistance {
 	
 	/*
+	 * Note: Consider below ith string is getting converted to jth string
+	 * Also, insertion/deletion/replacement operation is taking place in ith string
+	 * 
 	 * e(i,j) = Min { e(i-1, j) + d
 	 *                e(i, j-1) + i
 	 *                e(i-1, j-1) + r if(first[i]!=second[j])

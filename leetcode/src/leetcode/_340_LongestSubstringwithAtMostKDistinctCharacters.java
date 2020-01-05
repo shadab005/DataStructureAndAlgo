@@ -13,7 +13,6 @@ public class _340_LongestSubstringwithAtMostKDistinctCharacters {
 	}
 	
 	static public int lengthOfLongestSubstringKDistinct(String s, int k) {
-     
 		Set<Character> set = new HashSet<>();
 		int ans = Math.min(s.length(), k);
 		int i = 0, j =0;
