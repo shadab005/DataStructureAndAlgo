@@ -1,6 +1,6 @@
 package leetcode;
 
-public class _111_DecodePossibleString {
+public class _91_DecodePossibleString {
 	
 	public static void main(String[] args) {
 		System.out.println(numDecodings("2112"));

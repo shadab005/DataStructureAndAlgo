@@ -22,7 +22,7 @@ public class _139_WordBreak {
        return canBreakUsingBfs(s, set);
     }
 
-	private static boolean canBreak(String s, Set<String> set, HashMap<String, Boolean> map) {
+	private boolean canBreak(String s, Set<String> set, HashMap<String, Boolean> map) {
 		if(map.containsKey(s)) return map.get(s);
 		if(s.isEmpty()) return true;
 		boolean ans = false;

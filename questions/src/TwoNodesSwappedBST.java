@@ -39,7 +39,7 @@ public class TwoNodesSwappedBST {
 		second.data=temp;
 	}
 	public static void main(String[] args) {
-		BinarySearchTree bst = new BinarySearchTree();
+		/*BinarySearchTree bst = new BinarySearchTree();
 		bst.add(10);
 		bst.add(5);
 		bst.add(20);
@@ -47,6 +47,26 @@ public class TwoNodesSwappedBST {
 		bst.add(8);
 		bst.root.right.data=8;
 		bst.root.left.right.data=20;
+		BinaryTreePrinter.printNode(bst.root);
+		correctBST(bst.root);
+		BinaryTreePrinter.printNode(bst.root);*/
+		test();
+	}
+	
+	public static void test() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.add(8);
+		bst.add(3);
+		bst.add(1);
+		bst.add(5);
+		bst.add(4);
+		bst.add(13);
+		bst.add(10);
+		bst.add(18);
+		bst.add(25);
+		bst.add(27);
+		bst.root.right.right.data=25;
+		bst.root.right.right.right.data=18;
 		BinaryTreePrinter.printNode(bst.root);
 		correctBST(bst.root);
 		BinaryTreePrinter.printNode(bst.root);

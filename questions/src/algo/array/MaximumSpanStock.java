@@ -1,7 +1,7 @@
 package algo.array;
 import java.util.Stack;
 
-public class MaximumSpan {
+public class MaximumSpanStock {
 
 	private static void findMaxSpan(int[] a) {
 	    int n = a.length;
@@ -11,6 +11,28 @@ public class MaximumSpan {
 	    	span[j]=1;
 	    	while(!s.isEmpty() && a[s.peek()] <= a[j]){
 	    		span[j]+=span[s.pop()];
+	    	}
+	    	s.push(j);
+	    }
+	    for(int i = 0 ; i< span.length; i++){
+			System.out.print(span[i]+" ");
+		}
+		System.out.println();
+	}
+	
+	//looks better
+	private static void findMaxSpanII(int[] a) {
+	    int n = a.length;
+	    int span[] = new int[n];
+	    Stack<Integer> s = new Stack<>();
+	    for(int j = 0; j < n ;j++){
+	    	span[j]=1;
+	    	while(!s.isEmpty() && a[s.peek()] <= a[j]){
+	    		s.pop();
+	    	}
+	    	if(s.isEmpty()) span[j] = j+1;
+	    	else {
+	    		span[j] = j-s.peek();
 	    	}
 	    	s.push(j);
 	    }
@@ -33,9 +55,16 @@ public class MaximumSpan {
 			findMaxSpan(a);
 		}
 		in.close();*/
-		 int price[] = {10, 4, 5, 90, 120, 80};
+		 int price[] = {10, 4, 4, 90, 120, 80};
 		 findMaxSpan(price);
+		 findMaxSpanII(price);
+		 test2(new int[] {5,4,3,2,1});
 	}
+	
+	 static void test2(int price[] ) {
+		 findMaxSpan(price);
+		 findMaxSpanII(price);
+	 }
 
 
 }

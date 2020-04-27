@@ -30,5 +30,13 @@ public class DPLongestCommonSubstring {
 		}
 		return ans;
 	}
+	
+	public int longestCommonSubstring(String s1, String s2, int m, int n) {
+		if(m<0 || n<0) return 0;
+		int ans = 0;
+		if(s1.charAt(m)!=s2.charAt(n)) return 0;
+		
+		return ans;
+	}
 
 }

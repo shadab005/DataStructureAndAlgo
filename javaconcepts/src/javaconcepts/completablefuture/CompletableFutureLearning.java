@@ -120,7 +120,7 @@ public class CompletableFutureLearning {
 	}
 	public static void useChainWithThenRunThatTakesRunnable() throws InterruptedException, ExecutionException  {
 		CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> "Hello");
-		CompletableFuture<Void> future = completableFuture.thenRun(() -> System.out.println("Computation finished"));
+		CompletableFuture<Void> future = completableFuture.thenRun(() -> {System.out.println("Computation finished");});
 		future.get();
 	}
 	

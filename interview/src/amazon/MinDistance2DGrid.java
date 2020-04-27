@@ -13,9 +13,7 @@ public class MinDistance2DGrid {
 	private static final int PRIME = 1009;
 	static int minimumDistance(int numRows, int numColumns, List<List<Integer>> area)
     {
-		class A{
-			
-		}
+		
         // WRITE YOUR CODE HERE
 		int m = numRows, n=numColumns;
 		int a[][] = new int[numRows][numColumns];

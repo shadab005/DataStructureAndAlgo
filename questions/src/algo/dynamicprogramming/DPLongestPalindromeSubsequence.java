@@ -103,7 +103,7 @@ public class DPLongestPalindromeSubsequence {
 				if(s[i]!=s[j]){
 					dp[l][i]=Math.max(dp[l-1][i],dp[l-1][i+1]);
 				}else{
-					dp[l][i]=Math.max(dp[l-2][i+1]+2, dp[l-1][i]);
+					dp[l][i]=dp[l-2][i+1]+2;
 				}
 			}
 		}

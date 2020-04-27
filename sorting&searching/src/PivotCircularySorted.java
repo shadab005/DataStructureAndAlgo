@@ -4,6 +4,7 @@ public class PivotCircularySorted {
 	public static void main(String[] args) {
 		//int a[]={7,8,9,10,11,1,2,3};
 		int a[] = {5, 6, 7, 8, 9, 10, 1, 2, 3, 4};
+		//int a[] = {1,2,3};
 		int i=findPivot(a);
 		System.out.println("Pivot = " + i + " eclent = " + a[i]);
 		//System.out.println(-1%4);

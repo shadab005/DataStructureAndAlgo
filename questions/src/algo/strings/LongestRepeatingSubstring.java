@@ -4,6 +4,7 @@ public class LongestRepeatingSubstring {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println(longestRepeatingSubstringUsingSuffixArray("abcabc"));
 
 	}
 
@@ -23,12 +24,19 @@ public class LongestRepeatingSubstring {
 		return res;
 	}
 	
-	
-	public int longestRepeatingSubstringUsingSuffixArray(String s) {
+	/*
+	 * abcabc
+	 * bcabc
+	 * cabc
+	 * abc
+	 * bc
+	 * c
+	 */
+	public static int longestRepeatingSubstringUsingSuffixArray(String s) {
 		int n = s.length();
 		SuffixArray sa = new SuffixArray(s);
 		int ans = 0;
-		for(int  i = 1 ; i < n ; i++) {
+		for(int i = 1 ; i < n ; i++) {
 			int len = sa.lcp(i);
 			ans = Math.max(ans, len);
 		}

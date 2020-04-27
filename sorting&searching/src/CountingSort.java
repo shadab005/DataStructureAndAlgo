@@ -28,6 +28,9 @@ public class CountingSort {
 		System.out.println(x);
 		countSort(a);
 		for(int i=0;i<a.length;i++)System.out.print(a[i]+" ");
+		System.out.println();
+		
+		System.out.printf("0-9 = %d-%d , A-Z = %d-%d , a-z = %d-%d",'0'-0, '9'-0,'A'-0, 'Z'-0, 'a'-0,'z'-0);
 
 	}
 

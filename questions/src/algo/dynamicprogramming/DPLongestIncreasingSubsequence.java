@@ -58,6 +58,8 @@ public class DPLongestIncreasingSubsequence {
 		return m;
 	}
 	
+	//nlogn complexity
+	
 	public static int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;
