@@ -10,8 +10,13 @@ import java.util.stream.Stream;
 public class Test {
 	
 	public static void main(String[] args) {
-		writeToFile("Test content", "temp");
+		System.out.println("Hello");
 	}
+	
+	
+	
+	
+	
 	
 	public static List<String> testFileReadUsingStreams() {
 		List<String> fileContent = new ArrayList<>();

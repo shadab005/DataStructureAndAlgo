@@ -140,7 +140,7 @@ public class ClientGui extends JFrame
 		setSize(730, 450);
 		this.setBounds(20, 20, 730, 450);
 		//pack();
-		this.setResizable(false);
+		//this.setResizable(false);
 		setVisible(true);
 		this.addWindowListener(new WindowListener() {
 

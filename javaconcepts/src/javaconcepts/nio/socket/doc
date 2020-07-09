@@ -1,0 +1,11 @@
+Java NIO (New IO) is an alternative IO API for Java (from Java 1.4)
+Alternative to standard Java IO and Java Networking API's.
+In the standard IO API you work with byte streams and character streams. 
+In NIO you work with channels and buffers. Data is always read from a channel into a buffer, 
+or written from a buffer to a channel.
+
+Java NIO enables you to do non-blocking IO.
+
+Java NIO contains the concept of "selectors". A selector is an object that can monitor multiple channels for events (like: connection opened, data arrived etc.). 
+Thus, a single thread can monitor multiple channels for data.
+
