@@ -7,7 +7,7 @@ import java.io.IOException;
 class Test {
 
 	public static void main(String[] args) {
-		
+
 		try(BufferedReader br = new BufferedReader(new FileReader("stream_example"))){
 			System.out.println(br.readLine());
 			fun();
@@ -20,7 +20,7 @@ class Test {
 			System.out.println("I am done");
 		}
 	}
-	
+
 	static void fun() {
 		throw new RuntimeException("Dummy!");
 	}

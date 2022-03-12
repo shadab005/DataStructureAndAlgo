@@ -2,7 +2,7 @@ package javaconcepts.threads;
 
 public class DeadlockCode {
 
-	
+
 	/*
 	 * wait(p)   wait(q)
 	 * wait(q)   wait(p)
@@ -33,7 +33,7 @@ class Resources {
 				System.out.println("Held r2 by " + name);
 			}
 		}
-		
+
 	}
     void getQ(String name){
     	synchronized (r2) {
@@ -45,7 +45,7 @@ class Resources {
 			}
 			System.out.println("Waiting for r1 by " + name);
 			synchronized (r1) {
-				System.out.println("Held r1 by " + name);	
+				System.out.println("Held r1 by " + name);
 			}
 		}
 	}
@@ -56,7 +56,7 @@ class Producers implements Runnable {
 	Resources r;
 	Thread t;
 	String name;
-	Producers(Resources q, String name) 
+	Producers(Resources q, String name)
     {
         this.r = q;
         this.name=name;
@@ -67,14 +67,14 @@ class Producers implements Runnable {
 	public void run() {
 		r.getP(name);
 	}
-	
+
 }
 class Consumers implements Runnable {
 
 	Resources r;
 	Thread t;
 	String name;
-	Consumers(Resources q, String name) 
+	Consumers(Resources q, String name)
     {
 		this.name=name;
         this.r = q;
@@ -85,5 +85,5 @@ class Consumers implements Runnable {
 	public void run() {
 		r.getQ(name);
 	}
-	
+
 }

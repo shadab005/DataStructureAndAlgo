@@ -16,21 +16,21 @@ public class ForkJoinPoolExampleFindMax {
 
 }
 
-class FindMaxPositionRecursiveTask extends RecursiveTask<Integer> 
+class FindMaxPositionRecursiveTask extends RecursiveTask<Integer>
 {
 	private static final long serialVersionUID = 1L;
 	private int a[];
 	private int start;
 	private int end;
-	
+
 	private static final int THRESHOLD = 3;
-	
+
 	FindMaxPositionRecursiveTask(int a[], int start, int end){
 		this.a = a;
 		this.start = start;
 		this.end = end;
 	}
-	
+
 	@Override
 	protected Integer compute() {
 		if(end-start<=THRESHOLD) {
@@ -52,8 +52,8 @@ class FindMaxPositionRecursiveTask extends RecursiveTask<Integer>
 			int posLeft = left.join();
 			if(a[posLeft]>a[posRight])return posLeft;
 			else return posRight;
-			
+
 		}
 	}
-	
+
 }

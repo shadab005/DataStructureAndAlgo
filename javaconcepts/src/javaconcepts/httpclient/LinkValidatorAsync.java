@@ -15,7 +15,7 @@ public class LinkValidatorAsync {
     private static HttpClient client;
 
     public static void main(String[] args) throws Exception {
-    	
+
         client = HttpClient.newBuilder()
                     .connectTimeout(Duration.ofSeconds(3))
                     .followRedirects(HttpClient.Redirect.NORMAL)  //otherwise redirection will give 30* status and status will not be success. Comment and check

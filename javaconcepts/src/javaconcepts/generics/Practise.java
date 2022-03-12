@@ -11,7 +11,7 @@ public class Practise {
 			b[i] = temp;
 		}
 	}
-	
+
 	public static <T extends Comparable<? super T>> T maxElementInList(List<? extends T> l){
 		T max = l.get(0);
 		for(T t : l){
@@ -32,8 +32,8 @@ public class Practise {
 	}
 
 	public static <T> void print(T[] t) {
-		for (int i = 0; i < t.length; i++) {
-			System.out.print(t[i] + " ");
+		for (T element : t) {
+			System.out.print(element + " ");
 		}
 		System.out.println();
 	}

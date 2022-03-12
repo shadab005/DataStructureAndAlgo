@@ -6,20 +6,20 @@ import javaconcepts.threads.blockingqueue.MyBlockingQueue;
  *  Java Executor
  *  ExecutorService is an interface, you need to implement
  *  It has following implementation : ThreadPoolExecutor, ScheduledThreadPoolExecutor
- *  
+ *
  *  Executors factory class to create ExecutorService instances too.
  *  ExecutorService executorService1 = Executors.newSingleThreadExecutor();
  *  ExecutorService executorService2 = Executors.newFixedThreadPool(10);
  *  ExecutorService executorService3 = Executors.newScheduledThreadPool(10);
  *
- * ExecutorService methods:  
+ * ExecutorService methods:
  *  execute(Runnable) -> Execute the runnable task asynchronously
  *  submit(Runnable)  -> Returns a Future object. Can be used to check if Runnable has finished executing
- *  submit(Callable)  -> call method of Callable can return result. and obtained via the Future object returned by submit(Callable) method. {future.get()} 
+ *  submit(Callable)  -> call method of Callable can return result. and obtained via the Future object returned by submit(Callable) method. {future.get()}
  *  invokeAny(...)    -> it takes a collection of Callables. Doesn't return future but returns the result of one of the Callable objects (Which one no guarantee)
  *  invokeAll(...)    -> invokes all the callables. Returns list if futures via which you can obtain the results of the executions of each Callable.
- *  
- *  ThreadPoolExecutor : 
+ *
+ *  ThreadPoolExecutor :
  *  If not instantiating ThreadPoolExecutor using Exectors factory you have option of using another constructors
  *  int  corePoolSize  =    5;
  *  int  maxPoolSize   =   10;

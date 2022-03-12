@@ -11,7 +11,7 @@ class Student {
 	private int section=0;
 	//private static final Comparator<Student> BY_NAME = new ByName();
 	private static final Comparator<Student> BY_SECTION = new BySection();
-	
+
 	public Student(String name, int section) {
 		this.name=name;
 		this.section=section;
@@ -26,7 +26,7 @@ class Student {
 			System.out.println("Name = " + s.name + " Section =  " + s.section);
 		}
 	}
-	
+
 		/*private static class ByName implements Comparator<Student>
 		{
 
@@ -35,7 +35,7 @@ class Student {
 				return o1.name.compareTo(o2.name);
 			}
 		}*/
-		
+
 		private static class BySection implements Comparator<Student>
 		{
 
@@ -43,7 +43,7 @@ class Student {
 			public int compare(Student o1, Student o2) {
 				return o1.section-o2.section;
 			}
-			
+
 		}
-		
+
 }

@@ -8,23 +8,23 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class ParallelTasktest {
-	
+
 	private ExecutorService executor = Executors.newFixedThreadPool(2);
-	
-	
+
+
 	public static void main(String[] args) {
-	
+
 		ParallelTasktest p = new ParallelTasktest();
 		p.testOne();
 
 	}
-	
+
 	void testOne() {
 		System.out.println("Task started");
 		List<Runnable> tasks = getTasks();
 		List<Future<?>> futures = new ArrayList<>();
 
-		
+
 		//Future<?> result = executor.submit(()->f1());
 		/*for(Runnable task : tasks) {
 			futures.add(executor.submit(task));
@@ -53,8 +53,8 @@ public class ParallelTasktest {
 		System.out.println("End!!");
 		executor.shutdown();
 	}
-	
-	
+
+
 	private List<Runnable> getTasks() {
 		List<Runnable> runs = new ArrayList<>();
 		runs.add(()->f1());
@@ -71,7 +71,7 @@ public class ParallelTasktest {
 		}
 		throw new NullPointerException();
 	}
-	
+
 	void f2() {
 		System.out.println("Done f2");
 	}

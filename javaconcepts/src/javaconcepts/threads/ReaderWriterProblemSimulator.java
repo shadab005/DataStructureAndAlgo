@@ -59,6 +59,7 @@ class Reader extends Thread {
 		this.number = Reader.readers++;
 	}
 
+	@Override
 	public void run() {
 		while (true) {
 			final int DELAY = 5000;
@@ -85,6 +86,7 @@ class Writer extends Thread {
 		this.number = Writer.writers++;
 	}
 
+	@Override
 	public void run() {
 		while (true) {
 			final int DELAY = 5000;

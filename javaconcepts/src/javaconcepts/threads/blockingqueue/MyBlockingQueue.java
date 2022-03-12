@@ -7,7 +7,7 @@ import java.util.Queue;
  * BlockingQueue<String> queue = new ArrayBlockingQueue<>(1024);
  * queue.put("1");
  * String string = queue.take();
- * 
+ *
  */
 public class MyBlockingQueue<T> {
 
@@ -17,7 +17,7 @@ public class MyBlockingQueue<T> {
 		this.size = size;
 		queue = new ArrayDeque<>(size);
 	}
-	
+
 	public synchronized void put(T e) {
 		while(queue.size() == size) {
 			try {
@@ -31,7 +31,7 @@ public class MyBlockingQueue<T> {
 		      notifyAll();
 		}
 	}
-	
+
 	public synchronized T take() {
 		while(queue.size()==0) {
 			try {

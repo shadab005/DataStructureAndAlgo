@@ -6,7 +6,7 @@ import java.util.Queue;
 class Resource {
 
 	// queue as fixed buffer size
-	Queue<Integer> q = new LinkedList<Integer>();
+	Queue<Integer> q = new LinkedList<>();
 	int bufferSize = 10;
 
 	synchronized void get(Thread t) {
@@ -27,7 +27,7 @@ class Resource {
 		/*
 		 * try { Thread.sleep(1000); } catch (InterruptedException e) {
 		 * System.out.println("Exception Occured");
-		 * 
+		 *
 		 * }
 		 */
 	}
@@ -86,6 +86,7 @@ class Producer implements Runnable {
 		t.start();
 	}
 
+	@Override
 	public void run() {
 		int i = 0;
 
@@ -113,6 +114,7 @@ class Consumer implements Runnable {
 		t.start();
 	}
 
+	@Override
 	public void run() {
 		while (true) {
 			qc.get(t);

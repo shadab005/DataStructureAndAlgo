@@ -7,7 +7,7 @@ public class TestAnimal {
 
 	public static void main(String[] args) {
 		ArrayList<Dog> d = new ArrayList<>();
-		
+
 		d.add(new Dog());
 		TestAnimal t = new TestAnimal();
 		t.addAnimal(d);
@@ -28,7 +28,7 @@ public class TestAnimal {
 		System.out.println("Number of dogs is " + dogs.size());
 		// dogs.add(new Dog()); Compilation fail
 	}
-	
+
 	public void fun(List<? super DogDog> dogs) {
 		System.out.println("Just for another fun");
 		System.out.println("Number of dogs is " + dogs.size());

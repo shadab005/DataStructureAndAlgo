@@ -13,7 +13,7 @@ public class Test {
 }
 
 class A implements Runnable{
-	
+
 	@Override
 	public void run() {
 		for (int i = 0; i < 100; i++) {
@@ -29,7 +29,7 @@ class A implements Runnable{
 			notifyAll();
 		}*/
 	}
-	
+
 	synchronized void fun() throws InterruptedException {
 		this.wait();
 		System.out.println("Hello");

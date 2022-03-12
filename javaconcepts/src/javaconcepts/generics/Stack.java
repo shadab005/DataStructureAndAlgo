@@ -10,9 +10,9 @@ import java.util.Iterator;
  */
 
 /*
- * Iteratable :  has method iterator that returns Iterator 
+ * Iteratable :  has method iterator that returns Iterator
  * Iterator has methods: hasNext(), next(), remove
- * 
+ *
  */
 public class Stack<Item> implements Iterable<Item>{
 
@@ -57,7 +57,7 @@ public class Stack<Item> implements Iterable<Item>{
 	public Iterator<Item> iterator() {
 		return new ListIterator();
 	}
-	
+
 	private class ListIterator implements Iterator<Item>
 	{
 		private Node current = first;
@@ -73,7 +73,7 @@ public class Stack<Item> implements Iterable<Item>{
 			current = current.next;
 			return item;
 		}
-		
+
 	}
 
 }

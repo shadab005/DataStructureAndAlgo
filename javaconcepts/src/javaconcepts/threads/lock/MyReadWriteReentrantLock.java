@@ -5,12 +5,12 @@ import java.util.Map;
 
 /*
  * Strong writer priority
- * 
- * A thread is granted read reentrance if it can get read access (no writers or write requests), 
+ *
+ * A thread is granted read reentrance if it can get read access (no writers or write requests),
  * or if it already has read access (regardless of write requests). or if it is a writer
- * 
+ *
  * Write reentrance is granted only if the thread has already write access.
- * 
+ *
  * import java.util.concurrent.locks.ReadWriteLock; //Lock readLock();  Lock writeLock();
  * import java.util.concurrent.locks.ReentrantReadWriteLoc
  * Java ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
@@ -18,12 +18,12 @@ import java.util.Map;
  * readWriteLock.readLock().unlock();
  * readWriteLock.writeLock().lock();
  * readWriteLock.writeLock().unlock();
- *  
+ *
  */
 
 public class MyReadWriteReentrantLock {
 
-	private Map<Thread, Integer> readingThreads = new HashMap<Thread, Integer>();
+	private Map<Thread, Integer> readingThreads = new HashMap<>();
 	private int writers = 0;
 	private int writeRequests = 0;
 	private Thread writingThread = null;
@@ -53,7 +53,7 @@ public class MyReadWriteReentrantLock {
        writeRequests--;
        writers++;
        writingThread = Thread.currentThread();
-		
+
 	}
 
 	public synchronized void writeUnlock() {
@@ -64,7 +64,7 @@ public class MyReadWriteReentrantLock {
 		}
 		notifyAll();
 	}
-	
+
 
 
 	private boolean canGetWriteAccess() {
@@ -73,7 +73,7 @@ public class MyReadWriteReentrantLock {
 		if(writers > 0) return false;
 		return true;
 	}
-	
+
 	private boolean canGetReadAccess() {
 		//if no write request, writer or if it is the same thread that has lock
 		if(writingThread == Thread.currentThread())return true;

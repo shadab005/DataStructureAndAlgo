@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class CompletableFutureTest {
-	
+
 	private static ExecutorService ex = Executors.newFixedThreadPool(3);
 
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class CompletableFutureTest {
 		ex.shutdown();
 
 	}
-	
+
 	public static void test1() {
 		//If I remove sleep(3000) the Hello aysnc Supplier will not be printed.
 		//Difference between raw thread that we create and this completableFuture thread.
@@ -33,7 +33,7 @@ public class CompletableFutureTest {
 		c1.thenAccept(System.out::println);
 		System.out.println("Exiting this");
 	}
-	
+
 	public static void test2() {
 		CompletableFuture<String> cf = new CompletableFuture<>();
 		cf.thenApply(x->{System.out.println("thenApply:"+ Thread.currentThread()); return 1;});
@@ -41,6 +41,6 @@ public class CompletableFutureTest {
 		ex.execute(()->{ System.out.println("execute:"+Thread.currentThread());cf.complete("test");});
 		System.out.println("End test 2");
 	}
-	
+
 
 }

@@ -7,7 +7,7 @@ class Single {
 		 System.out.println("value of enum non static var : " + SingleObjectHolder.INSTANCE1.x);
 		 return SingleObjectHolder.INSTANCE1.obj;
 	 }
-	 
+
 	  enum SingleObjectHolder
 	 {
 		 INSTANCE1
@@ -19,7 +19,7 @@ class Single {
 			 }
 		 };
 		 Single obj = new Single();
-		 
+
 		 private int x = 10;
 		 static int y = 20;
 		 void f()
@@ -28,10 +28,10 @@ class Single {
 		 }
 		 SingleObjectHolder() //by default private constructor
 		 {
-			 
+
 		 }
 	 }
-	 
+
 }
 
 enum X

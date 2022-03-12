@@ -7,7 +7,7 @@ package javaconcepts.threads.lock;
  * tryLock()
  * tryLock(long timeout, TimeUnit timeUnit)
  * unlock()
- * 
+ *
  */
 public class MyLockReentrant {
 

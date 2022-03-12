@@ -1,7 +1,7 @@
 package javaconcepts.generics;
 
 public class Example {
-	
+
 	public static void main(String[] args) throws InterruptedException {
 
 		B b = new B();
@@ -33,6 +33,7 @@ class X {
 
 class Y extends X {
 
+	@Override
 	void f1() {
 	}
 

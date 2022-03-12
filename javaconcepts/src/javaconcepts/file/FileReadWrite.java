@@ -24,7 +24,7 @@ public class FileReadWrite {
 		}
 		return fileContent;
 	}
-	
+
 	public static void writeToFileUsingStreams(String content, String fileName) {
 		try {
 			Files.write(Paths.get(fileName), content.getBytes());
@@ -32,8 +32,8 @@ public class FileReadWrite {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	public static List<String> readUsingBufferedReader(String fileName) {
 		String line = "";
 		List<String> data = new ArrayList<>();
@@ -46,7 +46,7 @@ public class FileReadWrite {
 		}
 		return data;
 	}
-	
+
 	public static void writeUsingBufferedWriter(List<String> data, String fileName) {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))){
 			for(String line : data) {
@@ -57,11 +57,11 @@ public class FileReadWrite {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		writeToFileUsingStreams("This is test content\nNew Line Started", "test");
 		System.out.println(readUsingStreams("test"));
-		
+
 		writeUsingBufferedWriter(Arrays.asList("abc", "def"), "testFile");
 		System.out.println(readUsingBufferedReader("testFile"));
 
