@@ -1,0 +1,123 @@
+OO Application consists of
+- Objects
+- Interaction (Message that pass between them). So sender should know about the 
+receiver which creates dependencies.
+
+Object-oriented design about managing dependencies such that objects can tolerate change.
+Design is more of the art of preserving changeability than it is the act of achieving 
+perfection.
+Foundation of an object-oriented system is the message. They are core of design.
+
+Design is an art of arranging code.
+
+Just as sculptor has chisels and files, object oriented designer has has tools-
+principles and patterns.
+
+Design principles:
+SOLID
+S-> Single responsibility
+O-> Open-closed
+L-> Liskov's substitution
+I-> Interface segregation and dependency inversion
+D-> Don't repeat yourself
+
+Design Pattern:
+Simple and elegant solution to specific problems in object-oriented software.
+
+Design fails because:
+1. Lack of design
+2. Overdesign
+3. When act of design is seperated from act of programming.
+
+
+Design emphasis will gradually shif from classes to messages over next several chapters.
+I.
+Design class with single responsibility 
+
+Grouping methods into classes
+Organizing code allow for easy change.
+
+Code should have TRUE quality
+T-> Transparent : consequence of change should be obvious that is changing and in distant code that relies upon it.
+R-> Reasonable : Cost of any change should be proportional to the benefits of the change achieves.
+U-> Usable : Existing code should be usable in new and unexpected context.
+E-> Exemplary : The code itself should encourage those who change it to perpetuate this quality.
+
+A class should do smallest possible thing.
+Description of class if has "and" that means there are more responsibility.
+if "or" then class has more than one responsibility and they aren't even related.
+
+OO designers uses the word cohesion to describe this concept.
+When everything is related to its central purpose, the class is said to be highly
+cohesive or to have single responsibility.
+SRP doesn't mean class should do only one narrow thing or thing that it change for
+only a single nitpicky reason instead SRP requires class be cohesive - that everything the class does be highly related to its purpose.
+
+
+II.
+Managing dependencies
+A class should depend only on classes that change less often than it does.
+To reduce dependencies
+>Inject dependencies. See what is the message you are sending and you need an object
+that can honour this message.
+>Isolate dependencies
+	- Isolate instance creation
+	- Isolate vulnerable external messages
+>Remove argument-order dependencies
+	-Use hashes for initalization arguments
+>Isolate multiparameter initalization
+
+Choosing dependency direction
+ 
+III.
+Creating Flexible interfaces.
+
+Public Interfaces
+The methods that make up the public interface of your class comprise the face it
+presents to the world. They:
+• Reveal its primary responsibility
+• Are expected to be invoked by others
+• Will not change on a whim
+• Are safe for others to depend on
+• Are thoroughly documented in the tests
+
+Private Interfaces
+All other methods in the class are part of its private interface. They:
+• Handle implementation details
+• Are not expected to be seen by other objects
+• Can change for any reason whatsoever
+• Are unsafe for others to depend on
+• May not even be referenced in the tests
+
+
+while designing we should think about domain objects (that arises from nouns of application) but we should not focus to much on these domain object that
+we force behavior into them. Rather a good designer focus on the message that passes between them and that might lead to new objects that are just as necessary but
+far less obvious.
+
+Designing a code should be like customer ordering food from menu (analogy behaviour from a class) but it should not go in the kitchen to give instructions and make food.
+Similarly code should know only enough that it doesn't know too much about other and the code should drive and become the part of behavior.
+
+Basically it is important to know the difference between asking for "what" instead of telling "how".
+
+A class holding onto an object and knowing what it does is context. We should try to reduce this context.
+
+Follow law of demeter.
+
+if my object calls a.b.c.send_message
+then my object has so much context of a.
+It also means that it not only knows what it wants but also how to navigate to achieve it.
+Object-oriented applications are defined by the messages that pass between objects.
+
+So two ideas of ood
+1. Messages are central to design
+2. Define your interface rigorously.
+Combine = Duck type
+
+If there is a case statement, instance check it is an hint towards Duck typing.
+
+
+If your interest is in object B, you should not be forced to know about object A if your only use of it is to find things out about B.
+ex: Imagine a StringUtils class that implements utility methods for managing strings. You can ask StringUtils if a string is empty by sending StringUtils.empty?(some_string).
+If you have written much object-oriented code you will find this idea ridiculous. Using a separate class to manage strings is patently redundant; strings are objects, they
+have their own behavior, they manage themselves. Requiring that other objects know about a third party, StringUtils, to get behavior from a string complicates the code
+by adding an unnecessary dependency.
